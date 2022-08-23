@@ -294,17 +294,6 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ]),
                       ),
-                      Container(
-                        margin:
-                        EdgeInsets.only(left: 20.w, right: 20.w, bottom: 75.h),
-                        child: Column(children: [
-                          const Text('SNS 간편 로그인',
-                              style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w300)),
-                          SizedBox(height: 15.h),
-                          const SnsContainer(),
-                        ]),
-                      ),
                     ]),
               ),
             ),

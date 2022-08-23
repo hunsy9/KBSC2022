@@ -1,0 +1,11 @@
+framework module SwiftOTP {
+  umbrella header "SwiftOTP-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftOTP.Swift {
+    header "SwiftOTP-Swift.h"
+    requires objc
+}
