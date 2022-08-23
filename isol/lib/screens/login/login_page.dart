@@ -85,9 +85,8 @@ class _LoginPageState extends State<LoginPage> {
                         margin:
                         EdgeInsets.only(left: 20.w, right: 20.w, top: 270.h),
                         child: Column(children: [
-                          Image.asset('assets/xhdpi/support_logo.png',
+                          Image.asset('assets/xhdpi/ISOL.png',
                               width: 250.w),
-                          SizedBox(height: 27.h),
                           Column(
                             children: [
                               Form(
@@ -179,8 +178,8 @@ class _LoginPageState extends State<LoginPage> {
                                           borderRadius: 10,
                                           shouldShowBorder: true,
                                           borderWidth: 1,
-                                          borderColor: const Color(0xff54c9a8),
-                                          checkedFillColor: const Color(0xff54c9a8),
+                                          borderColor: const Color(0xff0029d7),
+                                          checkedFillColor: const Color(0xff0029d7),
                                           value: rememberLoginCheck,
                                           onChanged: (val) {
                                             setState(() {
@@ -256,7 +255,7 @@ class _LoginPageState extends State<LoginPage> {
                                               fontSize: 14,
                                               fontWeight: FontWeight.w400)),
                                       style: supprotusButtonStyle(
-                                          const Color(0xff54c9a8)),
+                                          const Color(0xff053dc2)),
                                     ),
                                   ),
                                   const SizedBox(width: 10),
@@ -285,7 +284,7 @@ class _LoginPageState extends State<LoginPage> {
                                               fontSize: 14,
                                               fontWeight: FontWeight.w400)),
                                       style: supprotusButtonStyle(
-                                          const Color(0xff3ca789)),
+                                          const Color(0xff000275)),
                                     ),
                                   ),
                                 ],
