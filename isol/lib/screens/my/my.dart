@@ -47,7 +47,7 @@ class _MyState extends State<My> {
         builder: (BuildContext context, AsyncSnapshot snapshot){
           if (snapshot.hasData == false) {
             return const Center(child: CircularProgressIndicator(
-              color: Color(0xff54c9a8),
+              color: Color(0xff053dc2),
             ));
           }else{
             return SingleChildScrollView(

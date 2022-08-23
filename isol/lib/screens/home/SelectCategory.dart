@@ -54,7 +54,7 @@ class _SelectCategoryState extends State<SelectCategory> {
                     prints();
                   },
                   child: const Text('선택한 기부처 보기',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
-                  style: supprotusButtonStyleR10(const Color(0xff54c9a8)),
+                  style: supprotusButtonStyleR10(const Color(0xff000275)),
                 ),
               ),
             ],

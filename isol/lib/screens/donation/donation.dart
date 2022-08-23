@@ -48,7 +48,7 @@ class _DonationState extends State<Donation> {
             builder: (BuildContext context, AsyncSnapshot snapshot){
               if (snapshot.hasData == false) {
                 return const Center(child: CircularProgressIndicator(
-                  color: Color(0xff54c9a8),
+                  color: Color(0xff053dc2),
                 ));
               }else{
                 return Center(
@@ -79,8 +79,8 @@ class _DonationState extends State<Donation> {
                                 }).toList(),
                                 isScrollable: true,
                                 unselectedLabelColor: const Color(0xff313131),
-                                indicatorColor: const Color(0xff54c9a8),
-                                labelColor: const Color(0xff54c9a8), // 많으면 자동 스크롤
+                                indicatorColor: const Color(0xff053dc2),
+                                labelColor: const Color(0xff053dc2), // 많으면 자동 스크롤
                               ),
                             ),
                             Builder(
@@ -179,7 +179,7 @@ class _DonationState extends State<Donation> {
               if(snapshot.connectionState == ConnectionState.waiting){
                 return const Center(
                   child: CircularProgressIndicator(
-                    color: Color(0xff54c9a8),
+                    color: Color(0xff053dc2),
                   ),
                 );
               }
@@ -195,7 +195,7 @@ class _DonationState extends State<Donation> {
                       padding: EdgeInsets.only(top: 313.h),
                       itemSpacing: 18,
                       indicatorRadius: 4,
-                      currentIndicatorColor: const Color(0xff54c9a8)
+                      currentIndicatorColor: const Color(0xff053dc2)
                   ),
                   itemCount: 4
               );
@@ -222,7 +222,7 @@ class _DonationState extends State<Donation> {
               if(snapshot.connectionState == ConnectionState.waiting){
                 return const Center(
                   child: CircularProgressIndicator(
-                    color: Color(0xff54c9a8),
+                    color: Color(0xff053dc2),
                   ),
                 );
               }
@@ -238,7 +238,7 @@ class _DonationState extends State<Donation> {
                       padding: EdgeInsets.only(top: 313.h),
                       itemSpacing: 18,
                       indicatorRadius: 4,
-                      currentIndicatorColor: const Color(0xff54c9a8)
+                      currentIndicatorColor: const Color(0xff053dc2)
                   ),
                   itemCount: 4
               );

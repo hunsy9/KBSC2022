@@ -34,31 +34,6 @@ class _NavigationState extends State<Navigation> {
                 GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: (){
-                    context.read<TabSelect>().changeTab(appMenu[0], 0);
-                  },
-                  child: SizedBox(
-                    width: size.width * 0.2,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ImageIcon(
-                            const AssetImage('assets/xhdpi/icon_home.png'),
-                            size: 25.h,
-                            color: currentTab == 0 ? const Color(0xff54c9a8) : const Color(0xffeaeaea)
-                        ),
-                        const SizedBox(height: 3,),
-                        Text('홈',
-                          textScaleFactor: 1,
-                          style: TextStyle(color: currentTab == 0 ? const Color(0xff54c9a8) : const Color(0xff959595),
-                              fontSize: 10),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  onTap: (){
                     context.read<TabSelect>().changeTab(appMenu[1], 1);
                   },
                   child: SizedBox(
@@ -69,12 +44,12 @@ class _NavigationState extends State<Navigation> {
                         ImageIcon(
                             const AssetImage('assets/xhdpi/icon_donation.png'),
                             size: 25.h,
-                            color: currentTab == 1 ? const Color(0xff54c9a8) : const Color(0xffeaeaea)
+                            color: currentTab == 1 ? const Color(0xff000275) : const Color(0xffeaeaea)
                         ),
                         const SizedBox(height: 3,),
                         Text('기부처',
                           textScaleFactor: 1,
-                          style: TextStyle(color: currentTab == 1 ? const Color(0xff54c9a8) : const Color(0xff959595),
+                          style: TextStyle(color: currentTab == 1 ? const Color(0xff000275) : const Color(0xff959595),
                               fontSize: 10),
                         )
                       ],
@@ -84,7 +59,7 @@ class _NavigationState extends State<Navigation> {
                 GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: (){
-                    context.read<TabSelect>().changeTab(appMenu[2], 2);
+                    context.read<TabSelect>().changeTab(appMenu[0], 0);
                   },
                   child: SizedBox(
                     width: size.width * 0.2,
@@ -92,14 +67,14 @@ class _NavigationState extends State<Navigation> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ImageIcon(
-                            const AssetImage('assets/xhdpi/icon_notifications.png'),
+                            const AssetImage('assets/xhdpi/icon_home.png'),
                             size: 25.h,
-                            color: currentTab == 2 ? const Color(0xff54c9a8) : const Color(0xffeaeaea)
+                            color: currentTab == 0 ? const Color(0xff000275) : const Color(0xffeaeaea)
                         ),
                         const SizedBox(height: 3,),
-                        Text('알림',
+                        Text('홈',
                           textScaleFactor: 1,
-                          style: TextStyle(color: currentTab == 2 ? const Color(0xff54c9a8) : const Color(0xff959595),
+                          style: TextStyle(color: currentTab == 0 ? const Color(0xff000275) : const Color(0xff959595),
                               fontSize: 10),
                         )
                       ],
@@ -119,12 +94,12 @@ class _NavigationState extends State<Navigation> {
                         ImageIcon(
                             const AssetImage('assets/xhdpi/icon_my.png'),
                             size: 25.h,
-                            color: currentTab == 3 ? const Color(0xff54c9a8) : const Color(0xffeaeaea)
+                            color: currentTab == 3 ? const Color(0xff000275) : const Color(0xffeaeaea)
                         ),
                         const SizedBox(height: 3,),
                         Text('MY',
                           textScaleFactor: 1,
-                          style: TextStyle(color: currentTab == 3 ? const Color(0xff54c9a8) : const Color(0xff959595),
+                          style: TextStyle(color: currentTab == 3 ? const Color(0xff000275) : const Color(0xff959595),
                               fontSize: 10),
                         )
                       ],

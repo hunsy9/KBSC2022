@@ -24,10 +24,9 @@ class _HomeState extends State<Home> {
                 child: Column(
                   children: [
                     Image.asset(
-                      'assets/xhdpi/support_logo.png',
+                      'assets/xhdpi/ISOL.png',
                       width: 282.w,
                     ),
-                    SizedBox(height: 21.h),
                     SizedBox(
                       height: 50.h,
                       child: Container(
@@ -79,7 +78,7 @@ class _HomeState extends State<Home> {
                                             blurRadius: 6,
                                             spreadRadius: 0)
                                       ],
-                                      color: Color(0xff54c9a8)
+                                      color: Color(0xff000275)
                                   ),
                                 ),
                                 onTap: () {
