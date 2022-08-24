@@ -202,49 +202,7 @@ class _DonationState extends State<Donation> {
             }
           ),
         ),
-        Padding(
-          padding: EdgeInsets.only(top: 23.h, left: 15.w),
-          child: const Text(
-            "서포터님과 함께하는 새로운 기부처",
-            style: TextStyle(
-                color: Color(0xff000000),
-                fontWeight: FontWeight.w500,
-                fontFamily: "NotoSansKR",
-                fontStyle: FontStyle.normal,
-                fontSize: 16.0),
-          ),
-        ),
-        SizedBox(
-          height: 310.h,
-          child: StreamBuilder(
-            stream: FirebaseFirestore.instance.collection('donation_organization').limit(4).snapshots(),
-            builder: (context, AsyncSnapshot<QuerySnapshot<Map<String,dynamic>>> snapshot) {
-              if(snapshot.connectionState == ConnectionState.waiting){
-                return const Center(
-                  child: CircularProgressIndicator(
-                    color: Color(0xff053dc2),
-                  ),
-                );
-              }
-              return CarouselSlider.builder(
-                  enableAutoSlider: true,
-                  autoSliderTransitionTime: const Duration(seconds: 1),
-                  autoSliderDelay: const Duration(seconds: 5),
-                  unlimitedMode: true,
-                  slideBuilder: (index) {
-                    return _donationMainBox(context, snapshot.data!.docs[index]);  // TODO: Create _box list
-                  },
-                  slideIndicator: CircularSlideIndicator(
-                      padding: EdgeInsets.only(top: 313.h),
-                      itemSpacing: 18,
-                      indicatorRadius: 4,
-                      currentIndicatorColor: const Color(0xff053dc2)
-                  ),
-                  itemCount: 4
-              );
-            }
-          ),
-        ),
+
         Padding(
           padding: EdgeInsets.only(top: 23.h, left: 15.w),
           child: const Text(

@@ -29,14 +29,12 @@ class _SignUpPageState extends State<SignUpPage> {
   late FocusNode phoneNode;
   late FocusNode passwordNode;
   late FocusNode passwordCheckNode;
-  late FocusNode otpNode;
 
   var idController = TextEditingController();
   var nameController = TextEditingController();
   var mobileController = TextEditingController();
   var passwordController = TextEditingController();
   var passwordReController = TextEditingController();
-  var otpController = TextEditingController();
 
 
   String userID='';
@@ -48,52 +46,11 @@ class _SignUpPageState extends State<SignUpPage> {
   bool checkid = false; //id 중복체크 여부
   bool idReadonly = false; // 아이디 텍스트폼필드 비활성화용
   bool privacyReadonly = false; // 개인정보 텍스트폼필드 비활성화용
-  bool _visibility = false;
-  bool _snsvisibility = false;
 
   bool authOk=false;
   bool requestedAuth=false;
   String verificationId='';
   bool verifiedOK = true;
-
-
-  void signInWithPhoneAuthCredential(PhoneAuthCredential phoneAuthCredential) async {
-    try {
-      final authCredential = await _auth.signInWithCredential(phoneAuthCredential);
-
-      if(authCredential.user != null){
-        setState(() {
-          print("인증완료 및 로그인성공");
-          authOk=true;
-          requestedAuth=false;
-        });
-        await _auth.currentUser!.delete();
-        print("auth정보삭제");
-        _auth.signOut();
-        print("phone로그인된것 로그아웃");
-        await showCustomDialog(context, "인증이 완료되었습니다.",buttonText: "확인").then((value) =>
-            FocusScope.of(context).requestFocus(passwordNode));
-
-        _scrollController.animateTo(170.h,
-            duration: const Duration(milliseconds: 500),
-            curve: Curves.ease);
-
-        setState(() {
-          _visibility = false;
-          privacyReadonly = true;
-          verifiedOK = false;
-        });
-
-      }
-
-    } on FirebaseAuthException catch (e) {
-      setState(() {
-        print("인증실패..로그인실패");
-      });
-
-    }
-  }
-
 
   late ScrollController _scrollController;
 
@@ -106,7 +63,6 @@ class _SignUpPageState extends State<SignUpPage> {
     phoneNode = FocusNode();
     passwordNode = FocusNode();
     passwordCheckNode = FocusNode();
-    otpNode = FocusNode();
   }
 
   @override
@@ -118,7 +74,6 @@ class _SignUpPageState extends State<SignUpPage> {
     phoneNode.dispose();
     passwordNode.dispose();
     passwordCheckNode.dispose();
-    otpNode.dispose();
   }
 
   @override
@@ -146,7 +101,6 @@ class _SignUpPageState extends State<SignUpPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Form(
-
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -216,7 +170,6 @@ class _SignUpPageState extends State<SignUpPage> {
                                       }
                                     });
                                   }
-
                                 }
                               },
                               child: const Text('중복체크',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
@@ -264,168 +217,30 @@ class _SignUpPageState extends State<SignUpPage> {
                       SizedBox(height: 9.h),
                       SizedBox(
                         height: 45.h,
-                        child: Row(
-                          children: [
-                            Flexible(
-                              flex: 21,
-                              child: TextFormField( //연락처 입력 key3
-                                focusNode: phoneNode,
-                                readOnly: privacyReadonly,
-                                onChanged: (value){ //값이 바뀌면 변수에 저장
-                                  userPhone=value;
-                                },
-                                cursorColor: const Color(0xffe2eef0),
-                                style: getTextFieldFontStyle(),
-                                controller: mobileController,
-                                decoration: getInputDeco('‘-’없이 연락처를 입력해주세요.'),
-                                textInputAction: TextInputAction.next,
-                                keyboardType: TextInputType.phone,
-                                onTap: ()async{
-                                  if(!checkid){
-                                    await showCustomDialog(context, "이메일을 먼저 입력해주세요", buttonText: "확인");
-                                    FocusScope.of(context).requestFocus(emailNode);
-                                  }
-                                  _scrollController.animateTo(140.h,
-                                      duration: const Duration(milliseconds: 500),
-                                      curve: Curves.ease);
-                                },
-                              ),
-                            ),
-                            Flexible(
-                              flex: 1,
-                              child: Container(
-                                color: Colors.white,
-                              ),
-                            ),
-                            Flexible(
-                                flex:6,
-                                child: verifiedOK?RawMaterialButton(
-
-                                    fillColor: const Color(0xff626262),
-                                    shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
-                                    elevation: 2.0,
-
-                                    child: const Center(
-                                      child: Text('인증요청',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400,color: Colors.white)),
-                                    ),
-                                    onPressed: ()async{
-                                      if(!checkid){
-                                        showCustomDialog(context, "이메일을 입력해주세요", buttonText: "확인");
-                                      }
-                                      else{
-                                        if(mobileController.text.isNotEmpty){
-                                          await _auth.verifyPhoneNumber(
-                                              phoneNumber: mobileController.text.replaceAll('010', '+8210'),
-                                              verificationCompleted: (PhoneAuthCredential credential) async{
-                                                print("성공");
-                                              },
-                                              verificationFailed: (FirebaseAuthException e){
-                                                if (e.code == 'invalid-phone-number') {
-                                                  print('The provided phone number is not valid.');
-                                                }
-                                              },
-                                              codeSent:(String verificationID, int? resendToken)async{
-                                                print('코드보냄');
-                                                String smsCode = '';
-                                                setState(() {
-                                                  requestedAuth = true;
-                                                  FocusScope.of(context).nextFocus();
-                                                  this.verificationId = verificationID;
-                                                });
-                                              },
-                                              codeAutoRetrievalTimeout:  (String verificationId) {
-                                                //
-                                              }
-                                          );
-                                          _snsvisibility=true;
-                                          _visibility=true;
-                                        }
-                                        else{
-                                          showCustomDialog(context, "연락처를 입력해주세요.", buttonText: "확인");
-                                        }
-
-                                      }
-
-                                    }
-
-                                )
-                                    :
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xff626262),
-                                      borderRadius: BorderRadius.all(Radius.circular(5))
-                                  ),
-                                  child: Center(
-                                    child: Text('인증완료',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400,color: Colors.white)),
-                                  ),
-                                )
-                            )
-                          ],
+                        child: TextFormField( //연락처 입력 key3
+                          focusNode: phoneNode,
+                          readOnly: privacyReadonly,
+                          onChanged: (value){ //값이 바뀌면 변수에 저장
+                            userPhone=value;
+                          },
+                          cursorColor: const Color(0xffe2eef0),
+                          style: getTextFieldFontStyle(),
+                          controller: mobileController,
+                          decoration: getInputDeco('‘-’없이 연락처를 입력해주세요.'),
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.phone,
+                          onTap: ()async{
+                            if(!checkid){
+                              await showCustomDialog(context, "이메일을 먼저 입력해주세요", buttonText: "확인");
+                              FocusScope.of(context).requestFocus(emailNode);
+                            }
+                            _scrollController.animateTo(140.h,
+                                duration: const Duration(milliseconds: 500),
+                                curve: Curves.ease);
+                          },
                         ),
                       ),
                       SizedBox(height: 9.h),
-
-                      Visibility(
-                        visible: _visibility,
-                        child: SizedBox(
-                          height: 46.h,
-                          child: Row(
-                            children: [
-                              Flexible(
-                                flex: 21,
-                                child: TextFormField( //otp 받는곳
-                                  focusNode: otpNode,
-                                  onChanged: (value){ //값이 바뀌면 변수에 저장
-                                    userPhone=value;
-                                  },
-                                  cursorColor: const Color(0xffe2eef0),
-                                  style: getTextFieldFontStyle(),
-                                  controller: otpController,
-                                  decoration: getInputDeco('인증번호 6자리 입력해주세요'),
-                                  textInputAction: TextInputAction.next,
-                                  keyboardType: TextInputType.phone,
-                                  onTap: ()async{
-                                    if(!checkid){
-                                      await showCustomDialog(context, "이메일을 먼저 입력해주세요", buttonText: "확인");
-                                      FocusScope.of(context).requestFocus(emailNode);
-                                    }
-                                    _scrollController.animateTo(140.h,
-                                        duration: const Duration(milliseconds: 500),
-                                        curve: Curves.ease);
-                                  },
-                                ),
-                              ),
-                              Flexible(
-                                flex: 1,
-                                child: Container(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Flexible(
-                                flex:6,
-                                child: RawMaterialButton(
-
-                                    fillColor: const Color(0xff626262),
-                                    shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
-                                    elevation: 2.0,
-
-                                    child: const Center(
-                                      child: Text('확인',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400,color: Colors.white)),
-                                    ),
-                                    onPressed: ()async{
-                                      PhoneAuthCredential phoneAuthCredential =
-                                      PhoneAuthProvider.credential(verificationId: verificationId, smsCode: otpController.text);
-                                      signInWithPhoneAuthCredential(phoneAuthCredential);
-                                    }
-
-                                ),
-                              )
-
-
-                            ],
-                          ),
-                        ),
-                      ),
                       SizedBox(
                         height: 18.h,
                       ),
@@ -544,20 +359,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     ],
                   ),
                 ),
-                Visibility(
-                  visible: !_snsvisibility,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'SNS 간편 회원가입',
-                        style: getLoginTextStyle(),
-                      ),
-                      SizedBox( height: 9.h),
-                      const SnsContainer(),
-                    ],
-                  ),
-                )
               ],
             ),
           ),

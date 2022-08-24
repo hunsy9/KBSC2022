@@ -25,15 +25,15 @@ class My extends StatefulWidget {
 }
 
 class _MyState extends State<My> {
-  late String userName;
-  late String userLevel;
+  late String userName='유승훈';
+  late String userLevel='9';
 
   Future<bool> _init() async {
     final user = FirebaseAuth.instance.currentUser;
     final userData = await FirebaseFirestore.instance.collection('user').doc(user!.uid).get();
 
     userName = userData.data()!['userName'];
-    userLevel = userData.data()!['level'];
+    userLevel = userData.data()!['userlevel'];
     return true;
   }
 
@@ -45,11 +45,11 @@ class _MyState extends State<My> {
       body:  FutureBuilder(
         future: _init(),
         builder: (BuildContext context, AsyncSnapshot snapshot){
-          if (snapshot.hasData == false) {
-            return const Center(child: CircularProgressIndicator(
-              color: Color(0xff053dc2),
-            ));
-          }else{
+          // if (snapshot.hasData == false) {
+          //   return const Center(child: CircularProgressIndicator(
+          //     color: Color(0xff053dc2),
+          //   ));
+          // }else{
             return SingleChildScrollView(
               padding: EdgeInsets.all(15.w),
               child: Column(
@@ -220,7 +220,7 @@ class _MyState extends State<My> {
               ),
             );
           }
-        }
+        //}
       )
     );
   }

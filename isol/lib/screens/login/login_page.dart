@@ -115,12 +115,12 @@ class _LoginPageState extends State<LoginPage> {
                                         textInputAction: TextInputAction.next,
                                         decoration: getInputDeco('이메일'),
                                         keyboardType: TextInputType.emailAddress,
-                                        onTap: () {
-                                          _scrollController.animateTo(120.h,
-                                              duration:
-                                              const Duration(milliseconds: 500),
-                                              curve: Curves.ease);
-                                        },
+                                        // onTap: () {
+                                        //   _scrollController.animateTo(120.h,
+                                        //       duration:
+                                        //       const Duration(milliseconds: 500),
+                                        //       curve: Curves.ease);
+                                        // },
                                       ),
                                     ),
                                     SizedBox(height: 8.h),
@@ -146,12 +146,12 @@ class _LoginPageState extends State<LoginPage> {
                                         decoration: getInputDeco('패스워드'),
                                         obscureText: true,
                                         textInputAction: TextInputAction.done,
-                                        onTap: () {
-                                          _scrollController.animateTo(120.h,
-                                              duration:
-                                              const Duration(milliseconds: 500),
-                                              curve: Curves.ease);
-                                        },
+                                        // onTap: () {
+                                        //   _scrollController.animateTo(120.h,
+                                        //       duration:
+                                        //       const Duration(milliseconds: 500),
+                                        //       curve: Curves.ease);
+                                        // },
                                         onFieldSubmitted: (String value) async {
                                           print('로그인');
                                         },
