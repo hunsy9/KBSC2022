@@ -318,12 +318,15 @@ class _SignUpPageState extends State<SignUpPage> {
                                         .createUserWithEmailAndPassword(
                                         email: userID, password: userPassword);
 
-                                    await firestore.collection('user').doc('data').set({ //firestore에 사용자정보 등록
+
+                                    await firestore.collection('user').doc(newUser.user!.uid).set({ //firestore에 사용자정보 등록
 
                                       "Id":userID,
                                       "passWord":userPassword,
-                                      "name":userName,
+                                      "userName":userName,
+                                      "userLevel": "1",
                                       "phoneNumber":userPhone,
+
                                     });
 
                                     if(newUser.user != null)
@@ -351,7 +354,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 }
                               },
                               child: const Text('회원가입 완료',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
-                              style: supprotusButtonStyle(const Color(0xff54c9a8)),
+                              style: supprotusButtonStyle(const Color(0xff053dc2)),
                             ),
                           ),
                         ],

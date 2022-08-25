@@ -11,7 +11,7 @@ InputDecoration getInputDeco(String hintText) {
       borderRadius: BorderRadius.all(Radius.circular(5))
     ),
     focusedBorder: const OutlineInputBorder(
-      borderSide: BorderSide(color: Color(0xff54c9a8), width: 1.2),
+      borderSide: BorderSide(color: Color(0xff053dc2), width: 1.2),
       borderRadius: BorderRadius.all(Radius.circular(5))
     ),
   );

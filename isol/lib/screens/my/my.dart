@@ -25,15 +25,15 @@ class My extends StatefulWidget {
 }
 
 class _MyState extends State<My> {
-  late String userName='유승훈';
-  late String userLevel='9';
+  late String userName="";
+  late String userLevel="";
 
   Future<bool> _init() async {
     final user = FirebaseAuth.instance.currentUser;
     final userData = await FirebaseFirestore.instance.collection('user').doc(user!.uid).get();
 
     userName = userData.data()!['userName'];
-    userLevel = userData.data()!['userlevel'];
+    userLevel = userData.data()!['userLevel'];
     return true;
   }
 
@@ -83,7 +83,7 @@ class _MyState extends State<My> {
                             width: 10.w,
                           ),
                           Text(
-                            "Lv.${userLevel} ${userName}",
+                            "Lv.${userLevel}  ${userName}",
                             style: const TextStyle(
                                 color:  Color(0xff000000),
                                 fontWeight: FontWeight.w500,
@@ -110,8 +110,9 @@ class _MyState extends State<My> {
                                   fontSize: 16.0
                               ),
                             ),
-                            onTap: (){
-                              FirebaseAuth.instance.signOut();
+                            onTap: ()async{
+                              await FirebaseAuth.instance.signOut();
+                              print(FirebaseAuth.instance.currentUser!.email);
                             },
                           )
                         ],
@@ -167,51 +168,8 @@ class _MyState extends State<My> {
             SizedBox(
               height: 30.h,
             ),
-
-                  //카카오톡 문의
-                  Text(
-                    "카카오톡 문의",
-                    style: getMyTextStyle(),
-                  ),
                   SizedBox(
                     height: 9.h,
-                  ),
-                  GestureDetector(
-                    onTap: (){
-                      print('카카오톡 문의하기');
-                    },
-                    child: Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset('assets/xhdpi/icon_kakaoTalk.png', width: 30.w, height: 27.h,),
-                            SizedBox(width: 6.w,),
-                            const Text(
-                              "카카오톡으로 문의하기",
-                              style: TextStyle(
-                                  color: Color(0xff391b1b),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: "NotoSansKR",
-                                  fontStyle:  FontStyle.normal,
-                                  fontSize: 14.0
-                              ),
-                            )
-                          ],
-                        ),
-                        height: 45.h,
-                        decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(10)
-                            ),
-                            boxShadow: [BoxShadow(
-                                color: Color(0xffe2eef0),
-                                offset: Offset(0,3),
-                                blurRadius: 6,
-                                spreadRadius: 0
-                            )] ,
-                            color: Color(0xffffd809)
-                        )
-                    ),
                   ),
                   SizedBox(
                     height: 30.h,

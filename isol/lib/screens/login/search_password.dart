@@ -162,7 +162,7 @@ class _SearchPasswordState extends State<SearchPassword> {
                               print('비밀번호 찾기');
                             },
                             child: const Text('비밀번호 찾기',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
-                            style: supprotusButtonStyle(const Color(0xff54c9a8)),
+                            style: supprotusButtonStyle(const Color(0xff0029d7)),
                           ),
                         ),
                       ],
