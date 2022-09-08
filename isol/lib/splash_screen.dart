@@ -32,18 +32,10 @@ class _SplashScreenState extends State<SplashScreen> {
         alignment: Alignment.center,
         children: [
           Center(
-            child: Container(
+            child: SizedBox(
               width: double.infinity,
-              decoration: const BoxDecoration(
-                  gradient: LinearGradient (
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xff8ae5ab), Color(0xff16a8a3)]
-                  )
-              ),
               child: Center(
-                child: Image.asset('assets/xhdpi/splash.png',
-                    width: 275.w)
+                child: Image.asset('assets/xhdpi/isol_begin.png',)
               )
             ),
           )
