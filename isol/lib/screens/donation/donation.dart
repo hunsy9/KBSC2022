@@ -17,6 +17,12 @@ class Donation extends StatefulWidget {
 
 class _DonationState extends State<Donation> {
   final choices = ['전체', '아동,청소년', '어르신', '여성', '우리사회', '환경', '동물'];
+  final banners = [
+    "assets/xhdpi/donate_sample.jpg",
+    "assets/xhdpi/donate_sample2.jpg",
+    "assets/xhdpi/donate_sample3.jpg",
+    "assets/xhdpi/donate_sample4.jpg"
+  ];
   var index = 0;
 
   Map<int, bool> selectedFilter = {
@@ -199,7 +205,7 @@ class _DonationState extends State<Donation> {
                     autoSliderDelay: const Duration(seconds: 5),
                     unlimitedMode: true,
                     slideBuilder: (index) {
-                      return _donationMainBox(context,
+                      return _donationMainBox(index, context,
                           snapshot.data!.docs[index]); // TODO: Create _box list
                     },
                     slideIndicator: CircularSlideIndicator(
@@ -252,7 +258,7 @@ class _DonationState extends State<Donation> {
     );
   }
 
-  Widget _donationMainBox(BuildContext context,
+  Widget _donationMainBox(int index, BuildContext context,
       QueryDocumentSnapshot<Map<String, dynamic>> doc) {
     return Padding(
       padding: EdgeInsets.only(top: 9.h, bottom: 12.h, left: 15.w, right: 15.w),
@@ -290,7 +296,7 @@ class _DonationState extends State<Donation> {
                     topLeft: Radius.circular(19),
                     topRight: Radius.circular(19)),
                 child: Image.asset(
-                  "assets/xhdpi/banner_sample_img.png",
+                  banners[index],
                   fit: BoxFit.cover,
                   width: MediaQuery
                       .of(context)
