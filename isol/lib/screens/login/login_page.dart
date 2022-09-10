@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../style/style.dart';
 import '../../widget/app_bar.dart';
 import '../../widget/custom_check_box.dart';
-import '../../widget/sns_container.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../screens/navigation.dart';
 
@@ -56,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
-      appBar: statusBarColor(SystemUiOverlayStyle.dark),
+      // appBar: statusBarColor(SystemUiOverlayStyle.dark),
       body: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
@@ -262,9 +261,20 @@ class _LoginPageState extends State<LoginPage> {
                                   Expanded(
                                     child: ElevatedButton(
                                       onPressed: () async {
-                                        Navigator.pushNamed(
-                                            context, '/navigation');
-                                      },
+                                          try {
+                                            final newUser = await _authentication
+                                                .signInWithEmailAndPassword(
+                                                email: userID,
+                                                password: userPassword);
+                                            if (newUser.user != null) {
+                                              print("로그인성공");
+                                            }
+                                          } catch (e) {
+                                            print(e);
+                                          }
+                                        }
+                                        // Navigator.pushNamed(
+                                        //     context, '/navigation');
                                         /*_tryValidation();
                                         try {
                                           final newUser = await _authentication
@@ -279,7 +289,7 @@ class _LoginPageState extends State<LoginPage> {
                                           print(e);
                                         }
                                       },*/
-                                      child: const Text('로그인',
+                                      ,child: const Text('로그인',
                                           style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.w400)),

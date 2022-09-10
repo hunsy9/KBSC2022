@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:supportus_flutter_app/screens/my/sub/event.dart';
 import 'package:supportus_flutter_app/screens/my/sub/faq.dart';
 import 'package:supportus_flutter_app/screens/my/sub/myDonation/my_donation.dart';
 import 'package:supportus_flutter_app/screens/my/sub/my_question.dart';
@@ -26,14 +25,12 @@ class My extends StatefulWidget {
 
 class _MyState extends State<My> {
   late String userName="";
-  late String userLevel="";
 
   Future<bool> _init() async {
     final user = FirebaseAuth.instance.currentUser;
     final userData = await FirebaseFirestore.instance.collection('user').doc(user!.uid).get();
 
     userName = userData.data()!['userName'];
-    userLevel = userData.data()!['userLevel'];
     return true;
   }
 
@@ -83,7 +80,7 @@ class _MyState extends State<My> {
                             width: 10.w,
                           ),
                           Text(
-                            "Lv.${userLevel}  ${userName}",
+                            " ${userName}",
                             style: const TextStyle(
                                 color:  Color(0xff000000),
                                 fontWeight: FontWeight.w500,
@@ -149,10 +146,7 @@ class _MyState extends State<My> {
               height: 9.h,
             ),
             myButtonBox('공지사항',context, const Notice()),
-            SizedBox(
-              height: 8.h,
-            ),
-            myButtonBox('프로모션 이벤트',context, const Event()),
+
             SizedBox(
               height: 8.h,
             ),
