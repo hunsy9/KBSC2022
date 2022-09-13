@@ -1,32 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:supportus_flutter_app/widget/app_bar.dart';
 import 'SelectCategory.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Donation extends StatefulWidget {
+  const Donation({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  _DonationState createState() => _DonationState();
 }
 
-class _HomeState extends State<Home> {
+class _DonationState extends State<Donation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0x99f7fbfc),
+      appBar: AppBar(
+        centerTitle: true,
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
+        title:Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Image.asset(
+              'assets/xhdpi/ISOL.png',
+              height: 20.h,
+            )
+          ],
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0.2,
+      ),
       body: GestureDetector(
         onTap: (){
           FocusScope.of(context).unfocus();
         },
         child: SingleChildScrollView(
             child: Container(
-                margin: EdgeInsets.only(left: 15.w, right: 15.w, top: 258.h),
+                margin: EdgeInsets.only(left: 15.w, right: 15.w, top: 15.h),
                 child: Column(
                   children: [
-                    Image.asset(
-                      'assets/xhdpi/ISOL.png',
-                      width: 282.w,
-                    ),
                     SizedBox(
                       height: 50.h,
                       child: Container(
@@ -84,214 +98,20 @@ class _HomeState extends State<Home> {
                                 onTap: () {
                                   print("검색");
                                 },
-                              )
+                              ),
                             ],
                           )),
                     ),
+                    SizedBox(height: 10.h,),
                     SizedBox(
-                      height: 32.h,
-                    ),
-                    SizedBox(
-                      height: 100.h,
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(16.w, 0, 25.w, 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              children: [
-                                RawMaterialButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => const SelectCategory()));
-                                    },
-                                    elevation: 2.0,
-                                    fillColor: Colors.white,
-                                    child: Image.asset(
-                                      'assets/xhdpi/home/children.png',
-                                      height: 40.h, //44.4
-                                    ),
-                                    padding: const EdgeInsets.all(15.0),
-                                    shape: const CircleBorder()),
-                                SizedBox(height: 7.h),
-                                const Text("아동,청소년",
-                                    style: TextStyle(
-                                        color: Color(0xff313131),
-                                        fontWeight: FontWeight.w400,
-                                        fontFamily: "NotoSansKR",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 11.0),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                RawMaterialButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => const SelectCategory()));
-                                  },
-                                  elevation: 2.0,
-                                  fillColor: Colors.white,
-                                  child: Image.asset(
-                                    'assets/xhdpi/home/old.png',
-                                    height: 40.h, //44.4
-                                  ),
-                                  padding: const EdgeInsets.all(15.0),
-                                  shape: const CircleBorder(),
-                                ),
-                                SizedBox(height: 7.h),
-                                const Text("어르신",
-                                    style: TextStyle(
-                                        color: Color(0xff313131),
-                                        fontWeight: FontWeight.w400,
-                                        fontFamily: "NotoSansKR",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 11.0),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                RawMaterialButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => const SelectCategory()));
-                                  },
-                                  elevation: 2.0,
-                                  fillColor: Colors.white,
-                                  child: Image.asset(
-                                    'assets/xhdpi/home/female.png',
-                                    height: 40.h, //44.4
-                                  ),
-                                  padding: const EdgeInsets.all(15.0),
-                                  shape: const CircleBorder(),
-                                ),
-                                SizedBox(height: 7.h),
-                                const Text("여성",
-                                    style: TextStyle(
-                                        color: Color(0xff313131),
-                                        fontWeight: FontWeight.w400,
-                                        fontFamily: "NotoSansKR",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 11.0),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15.h,
-                    ),
-                    SizedBox(
-                      height: 100.h,
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(16.w, 0, 25.w, 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              children: [
-                                RawMaterialButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => const SelectCategory()));
-                                  },
-                                  elevation: 2.0,
-                                  fillColor: Colors.white,
-                                  child: Image.asset(
-                                    'assets/xhdpi/home/oursociety.png',
-                                    height: 40.h, //44.4
-                                  ),
-                                  padding: const EdgeInsets.all(15.0),
-                                  shape: const CircleBorder(),
-                                ),
-                                SizedBox(height: 7.h),
-                                const Text("우리사회",
-                                    style: TextStyle(
-                                        color: Color(0xff313131),
-                                        fontWeight: FontWeight.w400,
-                                        fontFamily: "NotoSansKR",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 11.0),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                RawMaterialButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => const SelectCategory()));
-                                  },
-                                  elevation: 2.0,
-                                  fillColor: Colors.white,
-                                  child: Image.asset(
-                                    'assets/xhdpi/home/environment.png',
-                                    height: 40.h, //44.4
-                                  ),
-                                  padding: const EdgeInsets.all(15.0),
-                                  shape: const CircleBorder(),
-                                ),
-                                SizedBox(height: 7.h),
-                                const Text("환경",
-                                    style: TextStyle(
-                                        color: Color(0xff313131),
-                                        fontWeight: FontWeight.w400,
-                                        fontFamily: "NotoSansKR",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 11.0),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                RawMaterialButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => const SelectCategory()));
-                                  },
-                                  elevation: 2.0,
-                                  fillColor: Colors.white,
-                                  child: Image.asset(
-                                    'assets/xhdpi/home/animal.png',
-                                    height: 40.h, //44.4
-                                  ),
-                                  padding: const EdgeInsets.all(15.0),
-                                  shape: const CircleBorder(),
-                                ),
-                                SizedBox(height: 7.h),
-                                const Text("동물",
-                                    style: TextStyle(
-                                        color: Color(0xff313131),
-                                        fontWeight: FontWeight.w400,
-                                        fontFamily: "NotoSansKR",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 11.0),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                      height: 50.h,
+                      child: Container(),
+                    )
                   ],
                 ))),
       ),
     );
   }
 }
+
+

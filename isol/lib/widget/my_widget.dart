@@ -66,7 +66,7 @@ Widget myDonationBox(context){
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      "후원일자 2021.09.08",
+                      "후원일자 2022.09.08",
                       style: TextStyle(
                           color:  Color(0xff000000),
                           fontWeight: FontWeight.w500,
@@ -92,9 +92,13 @@ Widget myDonationBox(context){
                               await showDonationDialog(context).then((value) {
                                 print(value);
                                 switch (value){
-                                  case '기부금 영수증':
+                                  case '후원금 영수증':
                                     Navigator.push(context,
                                         MaterialPageRoute(builder: (context) => const DonationReceipt()));
+                                    break;
+                                  case '증빙자료':
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) => const CancelDonation()));
                                     break;
                                   case '기부취소':
                                     Navigator.push(context,
@@ -134,7 +138,7 @@ Widget myDonationBox(context){
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          "부산대학교 산학협력단",
+                          "굿네이버스",
                           style: TextStyle(
                               color:  Color(0xff313131),
                               fontWeight: FontWeight.w500,

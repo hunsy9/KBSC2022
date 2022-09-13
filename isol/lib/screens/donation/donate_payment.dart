@@ -5,7 +5,15 @@ import '../../style/style.dart';
 import '../../widget/app_bar.dart';
 import '../../widget/custom_check_box.dart';
 import '../../widget/donation_widget.dart';
-import 'donate_paymentApi.dart';
+
+import 'package:flutter/material.dart';
+import 'package:supportus_flutter_app/widget/app_bar.dart';
+import 'donate_completion.dart';
+import 'package:bootpay_api/bootpay_api.dart';
+import 'package:bootpay_api/model/payload.dart';
+import 'package:bootpay_api/model/extra.dart';
+import 'package:bootpay_api/model/user.dart';
+import 'package:bootpay_api/model/item.dart';
 
 class DonatePayment extends StatefulWidget {
   const DonatePayment({Key? key}) : super(key: key);
@@ -38,7 +46,7 @@ class _DonatePaymentState extends State<DonatePayment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: baseAppBar('기부하기'),
+        appBar: baseAppBar('후원하기'),
         body: GestureDetector(
           onTap: (){
             FocusScope.of(context).unfocus();
@@ -81,7 +89,7 @@ class _DonatePaymentState extends State<DonatePayment> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                                "기부금 목적",
+                                "후원금 목적",
                                 style: TextStyle(
                                     color:  const Color(0xff222222),
                                     fontWeight: FontWeight.w400,
@@ -91,7 +99,7 @@ class _DonatePaymentState extends State<DonatePayment> {
                                 ),
                             ),
                             Text(
-                                "대학생 봉사 활동비",
+                                "학교 재건비",
                                 style: TextStyle(
                                     color:  const Color(0xff222222),
                                     fontWeight: FontWeight.w400,
@@ -179,7 +187,7 @@ class _DonatePaymentState extends State<DonatePayment> {
                       ),
                       SizedBox(height: 15.h,),
                       Text(
-                          "기부처에게 남기고 싶은말",
+                          "후원처에게 남기고 싶은말",
                           style: TextStyle(
                               color:  const Color(0xff222222),
                               fontWeight: FontWeight.w400,
@@ -190,7 +198,7 @@ class _DonatePaymentState extends State<DonatePayment> {
                       ),
                       SizedBox(height: 7.h,),
                       Container(
-                          height: 140.h,
+                          height: 100.h,
                           decoration: BoxDecoration(
                               borderRadius: const BorderRadius.all(
                                   Radius.circular(5)
@@ -204,7 +212,7 @@ class _DonatePaymentState extends State<DonatePayment> {
                         child: Padding(
                           padding: EdgeInsets.only(left: 9.w, top: 15.h, right: 9.w, bottom: 15.h),
                           child: Text(
-                              "“자고 있는데 화재 경보음 소리에 깜짝 놀라 깨보니까, 눈앞에 불이 번쩍하더라고. 큰일 날 뻔했어” 오래된 전선이 곧 끊어질 듯 위태하게 이어져 있는 천장에는 불에 탄 시커먼 자국과 켜지지 않는 전등만이 남겨져 있습니다. 그 어두운 방 안 텔레비전 불빛에 의존해 생활하고 있는 정◯◯어르신은 큰 불로 번지지 않았다는 안도감이 든 것도 잠시, 오래된 전선 때문에 또 ",
+                              "",
                           style: TextStyle(
                               color:  const Color(0xff313131),
                             fontWeight: FontWeight.w400,
@@ -328,7 +336,7 @@ class _DonatePaymentState extends State<DonatePayment> {
                       ),
                       SizedBox(height: 27.h,),
                       Text(
-                          "기부금 결제 금액",
+                          "후원금 결제 금액",
                           style: TextStyle(
                               color:  const Color(0xff222222),
                               fontWeight: FontWeight.w500,
@@ -357,7 +365,7 @@ class _DonatePaymentState extends State<DonatePayment> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                    "기부금 결제 금액",
+                                    "후원금 결제 금액",
                                     style: TextStyle(
                                         color:  const Color(0xff000000),
                                         fontWeight: FontWeight.w500,
@@ -664,7 +672,94 @@ class _DonatePaymentState extends State<DonatePayment> {
             ),
           ),
         ),
-        bottomNavigationBar: donationBottomButton(context, const DonatePaymentApi(), '기부금 결제하기')
+        bottomNavigationBar: SizedBox(
+      height: 60.h,
+      child: ElevatedButton(
+        onPressed: () {
+          goBootpayRequest(context);
+        },
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(const Color(
+              0xff2938ff)),
+        ),
+        child: Padding(
+          padding: EdgeInsets.only(bottom: 10.h),
+          child: Text(
+            "후원금 결제하기",
+            style: TextStyle(
+                color:  const Color(0xffffffff),
+                fontWeight: FontWeight.w400,
+                fontFamily: "NotoSansKR",
+                fontStyle:  FontStyle.normal,
+                fontSize: 14.sp
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+    ),
     );
   }
+}
+
+void goBootpayRequest(BuildContext context) async {
+  Payload payload = Payload();
+  payload.androidApplicationId = '5b8f6a4d396fa665fdc2b5e8';
+  payload.iosApplicationId = '5b8f6a4d396fa665fdc2b5e9';
+
+  payload.pg = 'nicepay';
+  payload.method = 'card';
+//  payload.methods = ['card', 'phone', 'vbank', 'bank'];
+  payload.name = 'testUser';
+  payload.price = 10000.0;
+  payload.orderId = DateTime.now().millisecondsSinceEpoch.toString();
+//    payload.params = {
+//      "callbackParam1" : "value12",
+//      "callbackParam2" : "value34",
+//      "callbackParam3" : "value56",
+//      "callbackParam4" : "value78",
+//    };
+
+  User user = User();
+  user.username = "사용자 이름";
+  user.email = "user1234@gmail.com";
+  user.area = "서울";
+  user.phone = "010-1234-4567";
+
+  Extra extra = Extra();
+  extra.appScheme = 'bootpaySample';
+
+  Item item1 = Item();
+  item1.itemName = "기부금1"; // 주문정보에 담길 상품명
+  item1.qty = 1; // 해당 상품의 주문 수량
+  item1.unique = "ITEM_CODE_DONATE1"; // 해당 상품의 고유 키
+  item1.price = 30000; // 상품의 가격
+
+  Item item2 = Item();
+  item2.itemName = "기부금2"; // 주문정보에 담길 상품명
+  item2.qty = 1; // 해당 상품의 주문 수량
+  item2.unique = "ITEM_CODE_DONATE2"; // 해당 상품의 고유 키
+  item2.price = 20000; // 상품의 가격
+  List<Item> itemList = [item1, item2];
+
+  BootpayApi.request(
+    context,
+    payload,
+    extra: extra,
+    user: user,
+    items: itemList,
+    onDone: (String? json) {
+      print('onDone: $json');
+    },
+    onReady: (String? json) {
+      //flutter는 가상계좌가 발급되었을때  onReady가 호출되지 않는다. onDone에서 처리해주어야 한다.
+      print('onReady: $json');
+    },
+    onCancel: (String? json) {
+      print('onCancel: $json');
+    },
+    onError: (String? json) {
+      print('onError: $json');
+    },
+  );
 }

@@ -24,8 +24,8 @@ class _CancelDonationState extends State<CancelDonation> {
     super.initState();
     _scrollController = ScrollController();
     sampleData.add(RadioModel(false, false, '후원방식이 마음에 안들어요.'));
-    sampleData.add(RadioModel(false, false, '기부금액을 변경하고싶어요.'));
-    sampleData.add(RadioModel(false, false, '다른 기부처에 후원하고 싶어요.'));
+    sampleData.add(RadioModel(false, false, '후원금액을 변경하고싶어요.'));
+    sampleData.add(RadioModel(false, false, '다른 후원처에 후원하고 싶어요.'));
     sampleData.add(RadioModel(false, true, '직접입력'));
   }
 
@@ -37,7 +37,7 @@ class _CancelDonationState extends State<CancelDonation> {
 
   @override
   Widget build(BuildContext context) {
-    AppBar appBar = baseAppBar('기부금 취소');
+    AppBar appBar = baseAppBar('후원금 취소');
 
     final double statusBarHeight = MediaQuery.of(context).padding.top;
     final double appBarHeight = appBar.preferredSize.height;
@@ -61,7 +61,7 @@ class _CancelDonationState extends State<CancelDonation> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                    "취소하실 기부처/기부금",
+                    "취소하실 후원처/후원금",
                     style: TextStyle(
                         color:  Color(0xff313131),
                         fontWeight: FontWeight.w500,
@@ -92,7 +92,7 @@ class _CancelDonationState extends State<CancelDonation> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Text(
-                                        "부산대학교 산학협력단",
+                                        "굿네이버스",
                                         style: TextStyle(
                                             color:  Color(0xff313131),
                                             fontWeight: FontWeight.w400,
@@ -105,7 +105,7 @@ class _CancelDonationState extends State<CancelDonation> {
                                       height: 5.h,
                                     ),
                                     const Text(
-                                        "창업지원 | 창업지원 | 창업지원 | 창업지원",
+                                        "대전지역 | 정기후원 | 일시후원",
                                         style: TextStyle(
                                             color:  Color(0xff797979),
                                             fontWeight: FontWeight.w400,
@@ -230,8 +230,8 @@ class _CancelDonationState extends State<CancelDonation> {
                       borderRadius: 10,
                       shouldShowBorder: true,
                       borderWidth: 1,
-                      borderColor: const Color(0xff54c9a8),
-                      checkedFillColor: const Color(0xff54c9a8),
+                      borderColor: const Color(0xff0029d7),
+                      checkedFillColor: const Color(0xff0029d7),
                       value: rememberLoginCheck,
                       onChanged: (val) {
                         setState(() {
@@ -254,13 +254,13 @@ class _CancelDonationState extends State<CancelDonation> {
                                 children: [
                                   TextSpan(
                                       style: TextStyle(
-                                          color:  Color(0xff54c9a8),
+                                          color:  Color(0xff0029d7),
                                           fontWeight: FontWeight.w400,
                                           fontFamily: "NotoSansKR",
                                           fontStyle:  FontStyle.normal,
                                           fontSize: 13.0
                                       ),
-                                      text: "기부금 취소 관련 공지사항을"),
+                                      text: "후원금 취소 관련 공지사항을"),
                                   TextSpan(
                                       style: TextStyle(
                                           color:  Color(0xff575757),
@@ -285,19 +285,19 @@ class _CancelDonationState extends State<CancelDonation> {
                           Navigator.pop(context);
                         },
                         child: const Text('돌아가기',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
-                        style: supprotusButtonStyleR10(const Color(0xff54c9a8)),
+                        style: supprotusButtonStyleR10(const Color(0xff0029d7)),
                       ),
                     ),
                     const SizedBox(width: 10),
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () async {
-                          await showCustomDialog2(context,"기부금 취소가 완료되었습니다."," 기부금 취소 내역은 마이페이지 > 기부금/환불내역 메뉴에서 확인 가능합니다. ",buttonText: '기부금 취소내역 바로가기').then((value) =>
+                          await showCustomDialog2(context,"후원금 취소가 완료되었습니다."," 후원금 취소 내역은 마이페이지 > 후원금/환불내역 메뉴에서 확인 가능합니다. ",buttonText: '후원금 취소내역 바로가기').then((value) =>
                               Navigator.pushNamedAndRemoveUntil(context, '/navigation',(route) => false)
                           );
                         },
-                        child: const Text('기부금 취소',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
-                        style: supprotusButtonStyleR10(const Color(0xff3ca789)),
+                        child: const Text('후원금 취소',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
+                        style: supprotusButtonStyleR10(const Color(0xff000275)),
                       ),
                     ),
                   ],

@@ -8,14 +8,14 @@ import '../../widget/app_bar.dart';
 import 'filter.dart';
 import 'donation_info.dart';
 
-class Donation extends StatefulWidget {
-  const Donation({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  _DonationState createState() => _DonationState();
+  _HomeState createState() => _HomeState();
 }
 
-class _DonationState extends State<Donation> {
+class _HomeState extends State<Home> {
   final choices = ['전체', '아동,청소년', '어르신', '여성', '우리사회', '환경', '동물'];
   final banners = [
     "assets/xhdpi/donate_sample.jpg",
@@ -47,7 +47,23 @@ class _DonationState extends State<Donation> {
       length: choices.length,
       child: Scaffold(
         backgroundColor: const Color(0x99f7fbfc),
-        appBar: baseAppBar('기부처'),
+        appBar: AppBar(
+          centerTitle: true,
+          iconTheme: const IconThemeData(
+            color: Colors.black,
+          ),
+          title:Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Image.asset(
+                'assets/xhdpi/ISOL.png',
+                height: 20.h,
+              )
+            ],
+          ),
+          backgroundColor: Colors.white,
+          elevation: 0.2,
+        ),
         body: FutureBuilder(
           future: _init(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -176,7 +192,7 @@ class _DonationState extends State<Donation> {
         Padding(
           padding: EdgeInsets.only(top: 18.h, left: 15.w),
           child: const Text(
-            "서포터님을 찾고 있는 기부처",
+            "서포터님을 찾고 있는 후원처",
             style: TextStyle(
                 color: Color(0xff000000),
                 fontWeight: FontWeight.w500,
@@ -186,7 +202,7 @@ class _DonationState extends State<Donation> {
           ),
         ),
         SizedBox(
-          height: 310.h,
+          height: 290.h,
           child: StreamBuilder(
               stream: FirebaseFirestore.instance.collection(
                   'donation_organization').snapshots(),
@@ -209,7 +225,7 @@ class _DonationState extends State<Donation> {
                           snapshot.data!.docs[index]); // TODO: Create _box list
                     },
                     slideIndicator: CircularSlideIndicator(
-                        padding: EdgeInsets.only(top: 313.h),
+                        padding: EdgeInsets.only(top: 296.h),
                         itemSpacing: 18,
                         indicatorRadius: 4,
                         currentIndicatorColor: const Color(0xff053dc2)
@@ -223,7 +239,7 @@ class _DonationState extends State<Donation> {
         Padding(
           padding: EdgeInsets.only(top: 23.h, left: 15.w),
           child: const Text(
-            "서포터님이 좋아할만한 기부처",
+            "서포터님이 좋아할만한 후원처",
             style: TextStyle(
                 color: Color(0xff000000),
                 fontWeight: FontWeight.w500,
@@ -235,8 +251,8 @@ class _DonationState extends State<Donation> {
         Column(
           children: [
             _donationSubBox(context),
-            _donationSubBox(context),
-            _donationSubBox(context),
+            _donationSubBox2(context),
+            _donationSubBox1(context),
           ],
         ),
       ],
@@ -247,10 +263,10 @@ class _DonationState extends State<Donation> {
     return ListView(
         children: <Widget>[
           _donationSubBox(context),
-          _donationSubBox(context),
-          _donationSubBox(context),
-          _donationSubBox(context),
-          _donationSubBox(context),
+          _donationSubBox2(context),
+          _donationSubBox1(context),
+          _donationSubBox2(context),
+          _donationSubBox1(context),
           _donationSubBox(context),
           _donationSubBox(context),
           _donationSubBox(context),
@@ -343,10 +359,6 @@ class _DonationState extends State<Donation> {
                       ],
                     ),
                     SizedBox(height: 13.h,),
-                    Image.asset(
-                      "assets/xhdpi/icon_donationPurpose.png",
-                      height: 15.h,
-                    ),
                     SizedBox(height: 7.h,),
                     Text(
                       doc['Introduction'],
@@ -410,7 +422,7 @@ class _DonationState extends State<Donation> {
                     child: Row(
                       children: [
                         Image.asset("assets/xhdpi/icon_sample.png",
-                          height: 64.h,
+                          height: 45.h,
                         ),
                         Padding(
                           padding: EdgeInsets.only(left: 15.w),
@@ -418,7 +430,7 @@ class _DonationState extends State<Donation> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("부산대학교 산학협력단",
+                              Text("굿네이버스",
                                 style: TextStyle(
                                     color: const Color(0xff313131),
                                     fontWeight: FontWeight.w400,
@@ -429,7 +441,7 @@ class _DonationState extends State<Donation> {
                               SizedBox(
                                 height: 5.h,
                               ),
-                              Text("창업지원 | 청년지원 | 창업지원",
+                              Text("대전지역 | 아동지원 | 교육지원",
                                 style: TextStyle(
                                     color: const Color(0xff797979),
                                     fontWeight: FontWeight.w400,
@@ -458,16 +470,238 @@ class _DonationState extends State<Donation> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            "assets/xhdpi/icon_donationPurpose.png",
-                            height: 15.h,
-                          ),
-                          SizedBox(
-                            width: 5.w,
-                          ),
                           Expanded(
                             child: Text(
-                              '"자고 있는데 화재 경보음 소리에 깜짝 놀라 깨보니까, 눈앞에 불이 번쩍하더라고. 큰일 날 뻔했어"',
+                              '"암 투병 중인 엄마, 순식간에 늘어나 버린 빚,\n고등학생인 지아의 이야기를 들어주세요."',
+                              softWrap: true,
+                              style: TextStyle(
+                                  color: const Color(0xff676767),
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: "NotoSansKR",
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 13.sp),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _donationSubBox1(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: 15.w, top: 11.h, right: 15.w, bottom: 2.h),
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const DonationInfo()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.zero,
+          primary: const Color(0x99f7fbfc),
+          elevation: 0.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(19.0),
+          ),
+        ),
+        child: Container(
+          height: 133.h,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(19.0),
+            color: Colors.white,
+            boxShadow: const [BoxShadow(
+                color: Color(0xffe2eef0),
+                offset: Offset(0, 3),
+                blurRadius: 6,
+                spreadRadius: 0
+            )
+            ],
+          ),
+          child: Padding(
+            padding: EdgeInsets.only(
+                left: 12.w, top: 7.h, right: 12.w, bottom: 13.h),
+            child: Column(
+              children: [
+                Flexible(
+                    flex: 64,
+                    fit: FlexFit.tight,
+                    child: Row(
+                      children: [
+                        Image.asset("assets/xhdpi/unicef.png",
+                          height: 54.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 15.w),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("UNICEF",
+                                style: TextStyle(
+                                    color: const Color(0xff313131),
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 16.sp),
+                              ),
+                              SizedBox(
+                                height: 5.h,
+                              ),
+                              Text("글로벌 | 아동지원 | 재건지원",
+                                style: TextStyle(
+                                    color: const Color(0xff797979),
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 13.sp),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    )),
+                SizedBox(height: 3.h,),
+                Flexible(
+                  flex: 50,
+                  fit: FlexFit.tight,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                            Radius.circular(7)
+                        ),
+                        color: Color(0xfff7fbfc)
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              '"하루아침에 마을이 폐허가 되었어요.\n 나에게 가장 소중한 아빠는 함께 갈 수 없대요."',
+                              softWrap: true,
+                              style: TextStyle(
+                                  color: const Color(0xff676767),
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: "NotoSansKR",
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 13.sp),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+  Widget _donationSubBox2(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: 15.w, top: 11.h, right: 15.w, bottom: 2.h),
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const DonationInfo()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.zero,
+          primary: const Color(0x99f7fbfc),
+          elevation: 0.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(19.0),
+          ),
+        ),
+        child: Container(
+          height: 133.h,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(19.0),
+            color: Colors.white,
+            boxShadow: const [BoxShadow(
+                color: Color(0xffe2eef0),
+                offset: Offset(0, 3),
+                blurRadius: 6,
+                spreadRadius: 0
+            )
+            ],
+          ),
+          child: Padding(
+            padding: EdgeInsets.only(
+                left: 12.w, top: 7.h, right: 12.w, bottom: 13.h),
+            child: Column(
+              children: [
+                Flexible(
+                    flex: 64,
+                    fit: FlexFit.tight,
+                    child: Row(
+                      children: [
+                        Image.asset("assets/xhdpi/save.png",
+                          height: 55.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 15.w),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("세이브더칠드런",
+                                style: TextStyle(
+                                    color: const Color(0xff313131),
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 16.sp),
+                              ),
+                              SizedBox(
+                                height: 5.h,
+                              ),
+                              Text("경기지역 | 아동지원 | 의료지원",
+                                style: TextStyle(
+                                    color: const Color(0xff797979),
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: "NotoSansKR",
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 13.sp),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    )),
+                SizedBox(height: 3.h,),
+                Flexible(
+                  flex: 50,
+                  fit: FlexFit.tight,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                            Radius.circular(7)
+                        ),
+                        color: Color(0xfff7fbfc)
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              '"작은 몸에 쏟아진 뜨거운 물, 매일 반복되는 고통\n10개월 된 아이, 민수를 도와주세요."',
                               softWrap: true,
                               style: TextStyle(
                                   color: const Color(0xff676767),

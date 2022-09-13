@@ -19,7 +19,7 @@ class _DonateCompletionState extends State<DonateCompletion> {
     List<Widget> appMenu = context.watch<TabSelect>().appMenu;
 
     return Scaffold(
-      appBar: baseAppBar('기부하기'),
+      appBar: baseAppBar('후원하기'),
       body: Container(
         padding: EdgeInsetsDirectional.fromSTEB(15.h, 22.w, 15.h, 17.w),
         color: const Color(0xfff7fbfc),
@@ -27,7 +27,7 @@ class _DonateCompletionState extends State<DonateCompletion> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-                "기부완료",
+                "후원완료",
                 style: TextStyle(
                     color:  const Color(0xff313131),
                     fontWeight: FontWeight.w500,
@@ -57,7 +57,7 @@ class _DonateCompletionState extends State<DonateCompletion> {
                       ),
                   ),
                     style: supprotusButtonStyleR10(
-                        const Color(0xff54c9a8)),
+                        const Color(0xff053dc2)),
                   ),
                 ),
               ],
@@ -100,7 +100,7 @@ Widget _donateCompletionBox(){
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("부산대학교 산학협력단",
+                        Text("굿네이버스",
                           style: TextStyle(
                               color: const Color(0xff313131),
                               fontWeight: FontWeight.w400,
@@ -111,7 +111,7 @@ Widget _donateCompletionBox(){
                         SizedBox(
                           height: 5.h,
                         ),
-                        Text("창업지원 | 청년지원 | 창업지원 | 창업지원",
+                        Text("정기후원 | 일시후원",
                           style: TextStyle(
                               color: const Color(0xff797979),
                               fontWeight: FontWeight.w400,

@@ -38,7 +38,23 @@ class _MyState extends State<My> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xfffafcfd),
-      appBar: baseAppBar('MY'),
+      appBar: AppBar(
+      centerTitle: true,
+      iconTheme: const IconThemeData(
+        color: Colors.black,
+      ),
+      title:Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Image.asset(
+            'assets/xhdpi/ISOL.png',
+            height: 20.h,
+          )
+        ],
+      ),
+      backgroundColor: Colors.white,
+      elevation: 0.2,
+    ),
       body:  FutureBuilder(
         future: _init(),
         builder: (BuildContext context, AsyncSnapshot snapshot){
@@ -52,6 +68,11 @@ class _MyState extends State<My> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    "마이페이지",
+                    style: getMyTextStyle(),
+                  ),
+                  SizedBox(height: 10.h,),
                   Container(
                     height: 100.h,
                     decoration: const BoxDecoration(
@@ -128,11 +149,11 @@ class _MyState extends State<My> {
             SizedBox(
               height: 9.h,
             ),
-            myButtonBox('내가 후원한 기부처',context, const MyDonation()),
+            myButtonBox('내가 서포트한 후원처',context, const MyDonation()),
             SizedBox(
               height: 8.h,
             ),
-            myButtonBox('기부금 취소/환불 내역',context, const MyRefund()),
+            myButtonBox('후원금 취소/환불 내역',context, const MyRefund()),
             SizedBox(
               height: 30.h,
             ),

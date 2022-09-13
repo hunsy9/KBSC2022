@@ -77,7 +77,7 @@ class _FilterState extends State<Filter> {
                   Navigator.pop(context, selectedFilter);
                 },
                 child: const Text('필터 적용하기',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
-                style: supprotusButtonStyleR10(const Color(0xff54c9a8)),
+                style: supprotusButtonStyleR10(const Color(0xff053dc2)),
               ),
             ),
           ],
@@ -106,7 +106,7 @@ class _FilterState extends State<Filter> {
                         children: [
                           TextSpan(
                               style: TextStyle(
-                                  color:  const Color(0xff54c9a8),
+                                  color:  const Color(0xff053dc2),
                                   fontWeight: FontWeight.w500,
                                   fontFamily: "NotoSansKR",
                                   fontStyle:  FontStyle.normal,

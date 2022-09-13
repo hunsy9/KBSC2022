@@ -15,7 +15,7 @@ class _DonationReceiptState extends State<DonationReceipt> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xfffafcfd),
-      appBar: baseAppBar('기부금 영수증'),
+      appBar: baseAppBar('후원금 영수증'),
       body: Container(
         padding: const EdgeInsets.all(15),
         child: Column(

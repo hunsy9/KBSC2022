@@ -216,7 +216,7 @@ Future showDonationDialog(BuildContext context) {
                             height: 6.h,
                           ),
                           const Text(
-                              "부산대학교 산학협력단",
+                              "굿네이버스",
                               style: TextStyle(
                                   color:  Color(0xff313131),
                                   fontWeight: FontWeight.w500,
@@ -282,9 +282,9 @@ Future showDonationDialog(BuildContext context) {
                                         overlayColor: MaterialStateProperty.all(Colors.transparent),
                                       ),
                                       onPressed: () {
-                                        Navigator.pop(context, '기부금 영수증');
+                                        Navigator.pop(context, '후원금 영수증');
                                       },
-                                      child: const Text('기부금 영수증',
+                                      child: const Text('후원금 영수증',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(color: Colors.black, fontSize: 14, letterSpacing: -0.42,fontWeight: FontWeight.w400))
                                   ),

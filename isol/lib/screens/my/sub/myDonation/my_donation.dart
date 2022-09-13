@@ -17,7 +17,7 @@ class _MyDonationState extends State<MyDonation> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xfffafcfd),
-      appBar: baseAppBar('내가 후원한 기부처'),
+      appBar: baseAppBar('내가 서포트한 후원처'),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SizedBox(
@@ -46,10 +46,10 @@ class _MyDonationState extends State<MyDonation> {
             Expanded(
               child: ElevatedButton(
                 onPressed: () async {
-                  print('기부금 영수증 일괄 다운로드');
+                  print('후원금 영수증 일괄 다운로드');
                 },
-                child: const Text('기부금 영수증 일괄 다운로드',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
-                style: supprotusButtonStyle(const Color(0xff54c9a8)),
+                child: const Text('후원금 영수증 일괄 다운로드',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
+                style: supprotusButtonStyle(const Color(0xff0029d7)),
               ),
             ),
           ],

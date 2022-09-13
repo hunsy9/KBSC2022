@@ -16,13 +16,13 @@ class _DonationInfoState extends State<DonationInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: baseAppBar('기부처 정보'),
+      appBar: baseAppBar('후원처 정보'),
       body: ListView(
         children: [
           Padding(
             padding: EdgeInsets.only(top: 20.h, left: 15.w),
             child: Text(
-              "부산대학교 산학협력단",
+              "UNICEF",
               style: TextStyle(
                   color:  const Color(0xff313131),
                   fontWeight: FontWeight.w500,
@@ -36,7 +36,7 @@ class _DonationInfoState extends State<DonationInfo> {
             padding: EdgeInsets.only(top: 10.h),
             child: ClipRRect(
               child: Image.asset(
-                "assets/xhdpi/banner_sample_img.png",
+                "assets/xhdpi/isol_begin.png",
                 fit: BoxFit.cover,
                 width: MediaQuery.of(context).size.width,
                 height: 200.h,
@@ -61,28 +61,13 @@ class _DonationInfoState extends State<DonationInfo> {
                 SizedBox(height: 8.h,),
                 _donationInfoBox(context),
                 SizedBox(height: 10.h,),
-                Text(
-                  "목적",
-                  style: TextStyle(
-                      color:  const Color(0xff313131),
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "NotoSansKR",
-                      fontStyle:  FontStyle.normal,
-                      fontSize: 16.sp
-                  ),
-                ),
-                SizedBox(height: 7.h,),
-                donatoinPurposeBox('기부처와 기부목적을 찾아보세요!',context, const DonationPurpose()),
-                SizedBox(height: 8.h,),
-                donatoinPurposeBox('기부처와 기부목적을 찾아보세요!',context, const DonationPurpose()),
-                SizedBox(height: 8.h,),
-                donatoinPurposeBox('기부처와 기부목적을 찾아보세요!',context, const DonationPurpose()),
+
               ],
             ),
           ),
         ],
       ),
-      bottomNavigationBar: donationBottomButton(context, const Donate(), '기부하러가기')
+      bottomNavigationBar: donationBottomButton(context, const Donate(), '후원하러가기')
     );
   }
 
@@ -102,7 +87,7 @@ class _DonationInfoState extends State<DonationInfo> {
       child: Padding(
         padding: EdgeInsets.all(12.w),
         child: Text(
-          '“자고 있는데 화재 경보음 소리에 깜짝 놀라 깨보니까, 눈앞에 불이 번쩍하더라고. 큰일 날 뻔했어”오래된 전선이 곧 끊어질 듯 위태하게 이어져 있는 천장에는 불에 탄 시커먼 자국과 켜지지 않는 전등만이 남겨져 있습니다. 그 어두운 방 안 텔레비전 불빛에 의존해 생활하고 있는 정◯◯어르신은 큰 불로 번지지 않았다는 안도감이 든 것도 잠시, 오래된 전선 때문에 또 불이 나지 않을까 불안함에 쉽사리 잠들기가 힘듭니다. 어르신의 모든 삶이 담긴 수십 년 된 노후 주택에는 오랜 세월에 낡아버린 전열 기구에 비닐 배선을 사용하고 있어 전기 화재 발생 위험에 더욱 노출되어 있습니다.',
+          '“기후 변화로 인한 사상 최악의 홍수로 파키스탄 3분의 1이 물에 잠겼습니다. 지난 6월 이후 파키스탄 강수량은 한세기동안 최고 기록을 경신했습니다. 석달 째 내린 폭우로 집 110만 채 이상이 떠내려가거나 파손되고, 학교 1만 8천개가 무너져 버렸습니다. 어린이 400명을 포함해 1,200명 이상이 사망했습니다. 파키스탄 정부는 최소 3,300만 명이 피해를 입었을 것으로 추산하고 있습니다. 340만 명의 홍수 피해 지역 어린이들의 상황은 위급하며, 긴급한 구호를 필요로 합니다.',
           style: TextStyle(
               color:  const Color(0xff313131),
               fontWeight: FontWeight.w400,

@@ -12,7 +12,7 @@ Widget donationBottomButton(BuildContext context, Widget page, String text){
         );
       },
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff54c9a8)),
+        backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff000275)),
       ),
       child: Padding(
         padding: EdgeInsets.only(bottom: 10.h),
@@ -63,7 +63,7 @@ Widget donationInfoBox(BuildContext context) {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("부산대학교 산학협력단",
+                        Text("굿네이버스",
                           style: TextStyle(
                               color: const Color(0xff313131),
                               fontWeight: FontWeight.w400,
@@ -74,7 +74,7 @@ Widget donationInfoBox(BuildContext context) {
                         SizedBox(
                           height: 5.h,
                         ),
-                        Text("창업지원 | 청년지원 | 창업지원 | 창업지원",
+                        Text("대전지역 | 정기후원 | 일시후원",
                           style: TextStyle(
                               color: const Color(0xff797979),
                               fontWeight: FontWeight.w400,
@@ -102,7 +102,7 @@ Widget donationInfoBox(BuildContext context) {
                 padding: const EdgeInsets.all(11.0),
                 child: Center(
                   child: Text(
-                    '“자고 있는데 화재 경보음 소리에 깜짝 놀라 깨보니까, 눈앞에 불이 번쩍하더라고. 큰일 날 뻔했어”오래된 전선이 곧 끊어질 듯 위태하게 이어져 있는 천장에는 불에 탄 시커먼 자국과 켜지지 않는 전등만이 남겨져 있습니다. 그 어두운 방 안 텔레비전 불빛에 의존해 생활하고 있는 정◯◯어르신은 큰 불로 번지지 않았다는 안도감이 든 것도 잠시, 오래된 전선 때문에 또 불이 나지 않을까 불안함에 쉽사리 잠들기가 힘듭니다. 어르신의 모든 삶이 담긴 수십 년 된 노후 주택에는 오랜 세월에 낡아버린 전열 기구에 비닐 배선을 사용하고 있어 전기 화재 발생 위험에 더욱 노출되어 있습니다.',
+                    '"기후 변화로 인한 사상 최악의 홍수로 파키스탄 3분의 1이 물에 잠겼습니다. 지난 6월 이후 파키스탄 강수량은 한세기동안 최고 기록을 경신했습니다. 석달 째 내린 폭우로 집 110만 채 이상이 떠내려가거나 파손되고, 학교 1만 8천개가 무너져 버렸습니다. 어린이 400명을 포함해 1,200명 이상이 사망했습니다. 파키스탄 정부는 최소 3,300만 명이 피해를 입었을 것으로 추산하고 있습니다. 340만 명의 홍수 피해 지역 어린이들의 상황은 위급하며, 긴급한 구호를 필요로 합니다."',
                     overflow: TextOverflow.ellipsis,
                     maxLines: 5,
                     softWrap: true,

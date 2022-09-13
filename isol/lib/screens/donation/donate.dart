@@ -20,9 +20,9 @@ class _DonateState extends State<Donate> {
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    sampleData.add(RadioModel(false, false, '대학생 봉사 활동비'));
-    sampleData.add(RadioModel(false, false, '교육봉사 재료 구매비'));
-    sampleData.add(RadioModel(false, false, '대학생 봉사 여비'));
+    sampleData.add(RadioModel(false, false, '구호물품 구매여비'));
+    sampleData.add(RadioModel(false, false, '학교 재건비'));
+    sampleData.add(RadioModel(false, false, '자원봉사자 봉사 여비'));
     sampleData.add(RadioModel(false, false, '자유롭게 사용해주세요.'));
     sampleData.add(RadioModel(false, true, '직접입력'));
   }
@@ -36,7 +36,7 @@ class _DonateState extends State<Donate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: baseAppBar('기부하기'),
+      appBar: baseAppBar('후원하기'),
       body: GestureDetector(
         onTap: (){
           FocusScope.of(context).unfocus();
@@ -49,7 +49,7 @@ class _DonateState extends State<Donate> {
               donationInfoBox(context),
               SizedBox(height: 43.h,),
               Text(
-                "기부금 목적을 선택해주세요.",
+                "후원금 목적을 선택해주세요.",
                 style: TextStyle(
                     color:  const Color(0xff313131),
                     fontWeight: FontWeight.w500,

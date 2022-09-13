@@ -13,7 +13,7 @@ class _DonationPurposeState extends State<DonationPurpose> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xfffafcfd),
-      appBar: baseAppBar('기부금 목적'),
+      appBar: baseAppBar('후원금 목적'),
     );
   }
 }

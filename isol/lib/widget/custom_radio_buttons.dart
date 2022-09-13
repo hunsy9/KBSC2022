@@ -14,7 +14,7 @@ class CustomRadioState extends State<CustomRadio> {
   @override
   void initState() {
     sampleData.add(RadioModel(false, false, '후원방식이 마음에 안들어요.'));
-    sampleData.add(RadioModel(false, false, '기부금액을 변경하고싶어요.'));
+    sampleData.add(RadioModel(false, false, '후원금액을 변경하고싶어요.'));
     sampleData.add(RadioModel(false, false, '다른 기부처에 후원하고 싶어요.'));
     sampleData.add(RadioModel(false, true, '직접입력'));
   }
@@ -62,7 +62,7 @@ class RadioItem extends StatelessWidget {
                 Radius.circular(10)
             ),
             border: Border.all(
-                color: _item.isSelected ? const Color(0xff54c9a8) : const Color(0xffe2eef0),
+                color: _item.isSelected ? const Color(0xff000275) : const Color(0xffe2eef0),
                 width: 1
             ),
             boxShadow: const [BoxShadow(
@@ -86,7 +86,7 @@ class RadioItem extends StatelessWidget {
                 hintText: _item.text,
                 enabled: _item.isInput,
                 hintStyle: TextStyle(
-                    color:  _item.isSelected ? const Color(0xff54c9a8) : const Color(0xff909090),
+                    color:  _item.isSelected ? const Color(0xff000275) : const Color(0xff909090),
                     fontWeight: FontWeight.w500,
                     fontFamily: "NotoSansKR",
                     fontStyle:  FontStyle.normal,

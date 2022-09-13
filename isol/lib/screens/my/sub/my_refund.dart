@@ -14,7 +14,7 @@ class _MyRefundState extends State<MyRefund> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xfffafcfd),
-      appBar: baseAppBar('기부금 취소/환불 내역'),
+      appBar: baseAppBar('후원금 취소/환불 내역'),
     );
   }
 }

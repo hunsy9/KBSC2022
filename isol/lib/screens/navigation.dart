@@ -47,7 +47,7 @@ class _NavigationState extends State<Navigation> {
                             color: currentTab == 1 ? const Color(0xff000275) : const Color(0xffeaeaea)
                         ),
                         const SizedBox(height: 3,),
-                        Text('기부처',
+                        Text('피드',
                           textScaleFactor: 1,
                           style: TextStyle(color: currentTab == 1 ? const Color(0xff000275) : const Color(0xff959595),
                               fontSize: 10),
