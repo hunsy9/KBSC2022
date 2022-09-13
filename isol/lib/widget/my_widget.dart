@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:supportus_flutter_app/screens/my/sub/myDonation/cancel_donation.dart';
+import 'package:supportus_flutter_app/screens/my/sub/myDonation/donationProcess.dart';
 
 import '../screens/my/sub/myDonation/donation_receipt.dart';
 import 'dialog.dart';
@@ -98,7 +99,7 @@ Widget myDonationBox(context){
                                     break;
                                   case '증빙자료':
                                     Navigator.push(context,
-                                        MaterialPageRoute(builder: (context) => const CancelDonation()));
+                                        MaterialPageRoute(builder: (context) => const DonationProcess()));
                                     break;
                                   case '기부취소':
                                     Navigator.push(context,
