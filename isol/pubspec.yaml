@@ -51,6 +51,8 @@ dependencies:
   uuid: ^3.0.6
   sign_in_with_apple: ^4.0.0
   liquid_progress_indicator_ns: ^1.0.0
+  tflite: ^1.1.2
+  firebase_ml_model_downloader: ^0.1.1+7
 
 dev_dependencies:
   flutter_test:
