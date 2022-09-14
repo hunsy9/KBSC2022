@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liquid_progress_indicator_ns/liquid_progress_indicator.dart';
+import 'package:flutter_shapes/flutter_shapes.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -9,7 +10,9 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
+
 class _HomeState extends State<Home> {
+  final Path path = Path();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,29 +38,22 @@ class _HomeState extends State<Home> {
           margin: EdgeInsets.only(left: 15.w, right: 15.w, top: 15.h),
           child: Column(
             children: [
-              SizedBox(height: 200.h,),
-              SizedBox(
-                width: 300.w,
-                height: 300.h,
-                child: LiquidCircularProgressIndicator(
-                value: 0.6, // Defaults to 0.5.
-                valueColor: AlwaysStoppedAnimation(Colors.blue), // Defaults to the current Theme's accentColor.
-                backgroundColor: Colors.white, // Defaults to the current Theme's backgroundColor.
-                borderColor: Colors.transparent,
-                borderWidth: 5.0,
-                direction: Axis.vertical, // The direction the liquid moves (Axis.vertical = bottom to top, Axis.horizontal = left to right). Defaults to Axis.vertical.
-                center: Text(
-                    "모금중...",
-                    style: const TextStyle(
-                        color:  const Color(0xff313131),
-                        fontWeight: FontWeight.w600,
-                        fontFamily: "NotoSansKR",
-                        fontStyle:  FontStyle.normal,
-                        fontSize: 15.0
-                    ),
-                    textAlign: TextAlign.left
+              Padding(
+                padding: EdgeInsets.only(top: 150.h),
+                child: Center(
+                  child: SizedBox(
+                    width: 200.w,
+                    height: 200.h,
+                    child: LiquidCustomProgressIndicator(
+                        value: 0.456, // Defaults to 0.5.
+                        valueColor: const AlwaysStoppedAnimation(Color(
+                            0xffff5e5e)), // Defaults to the current Theme's accentColor.
+                        backgroundColor: const Color(0xffffffff), // Defaults to the current Theme's backgroundColor.
+                        shapePath: ClipPathClass().Heart(Size(200.w, 200.h)), direction: Axis.vertical, // A Path object used to draw the shape of the progress indicator. The size of the progress indicator is created from the bounds of this path.
+                      )
+                  ),
                 ),
-              ),)
+              )
 
             ],
           )),
@@ -65,4 +61,17 @@ class _HomeState extends State<Home> {
   }
 }
 
-
+class ClipPathClass {
+  Path Heart(Size size) {
+    double width = size.width;
+    double height = size.height;
+    var path = Path();
+    path.moveTo(0.5 * width, height * 0.35);
+    path.cubicTo(0.2 * width, height * 0.1, -0.25 * width, height * 0.6,
+        0.5 * width, height);
+    path.moveTo(0.5 * width, height * 0.35);
+    path.cubicTo(0.8 * width, height * 0.1, 1.25 * width, height * 0.6,
+        0.5 * width, height);
+    return path;
+  }
+}
