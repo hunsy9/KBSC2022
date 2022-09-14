@@ -4,18 +4,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:flutter_carousel_slider/carousel_slider_indicators.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../widget/app_bar.dart';
 import 'filter.dart';
 import 'donation_info.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Donation extends StatefulWidget {
+  const Donation({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  _DonationState createState() => _DonationState();
 }
 
-class _HomeState extends State<Home> {
+class _DonationState extends State<Donation> {
   final choices = ['전체', '아동,청소년', '어르신', '여성', '우리사회', '환경', '동물'];
   final banners = [
     "assets/xhdpi/donate_sample.jpg",

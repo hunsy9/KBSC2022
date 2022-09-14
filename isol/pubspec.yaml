@@ -50,6 +50,7 @@ dependencies:
   http: ^0.13.4
   uuid: ^3.0.6
   sign_in_with_apple: ^4.0.0
+  liquid_progress_indicator_ns: ^1.0.0
 
 dev_dependencies:
   flutter_test:
