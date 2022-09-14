@@ -6,6 +6,9 @@ import 'package:flutter_carousel_slider/carousel_slider_indicators.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'filter.dart';
 import 'donation_info.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_ml_model_downloader/firebase_ml_model_downloader.dart';
+import 'package:tflite/tflite.dart';
 
 class Donation extends StatefulWidget {
   const Donation({Key? key}) : super(key: key);
@@ -23,6 +26,17 @@ class _DonationState extends State<Donation> {
     "assets/xhdpi/donate_sample4.jpg"
   ];
   var index = 0;
+
+  loadModel() async {
+    await Tflite.loadModel(
+        model: "assets/model.tflite",
+        labels: "assets/model.txt"
+    ).then((value) {
+      setState(() {
+        //_loading = false;
+      });
+    });
+  }
 
   Map<int, bool> selectedFilter = {
     0: true, //교육
