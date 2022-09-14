@@ -34,7 +34,7 @@ class _NavigationState extends State<Navigation> {
                 GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: (){
-                    context.read<TabSelect>().changeTab(appMenu[1], 1);
+                    context.read<TabSelect>().changeTab(appMenu[0], 0);
                   },
                   child: SizedBox(
                     width: size.width * 0.2,
@@ -44,35 +44,10 @@ class _NavigationState extends State<Navigation> {
                         ImageIcon(
                             const AssetImage('assets/xhdpi/icon_donation.png'),
                             size: 25.h,
-                            color: currentTab == 1 ? const Color(0xff000275) : const Color(0xffeaeaea)
-                        ),
-                        const SizedBox(height: 3,),
-                        Text('피드',
-                          textScaleFactor: 1,
-                          style: TextStyle(color: currentTab == 1 ? const Color(0xff000275) : const Color(0xff959595),
-                              fontSize: 10),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  onTap: (){
-                    context.read<TabSelect>().changeTab(appMenu[0], 0);
-                  },
-                  child: SizedBox(
-                    width: size.width * 0.2,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ImageIcon(
-                            const AssetImage('assets/xhdpi/icon_home.png'),
-                            size: 25.h,
                             color: currentTab == 0 ? const Color(0xff000275) : const Color(0xffeaeaea)
                         ),
                         const SizedBox(height: 3,),
-                        Text('홈',
+                        Text('후원처',
                           textScaleFactor: 1,
                           style: TextStyle(color: currentTab == 0 ? const Color(0xff000275) : const Color(0xff959595),
                               fontSize: 10),
@@ -84,7 +59,32 @@ class _NavigationState extends State<Navigation> {
                 GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: (){
-                    context.read<TabSelect>().changeTab(appMenu[3], 3);
+                    context.read<TabSelect>().changeTab(appMenu[1], 1);
+                  },
+                  child: SizedBox(
+                    width: size.width * 0.2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ImageIcon(
+                            const AssetImage('assets/xhdpi/icon_home.png'),
+                            size: 25.h,
+                            color: currentTab == 1 ? const Color(0xff000275) : const Color(0xffeaeaea)
+                        ),
+                        const SizedBox(height: 3,),
+                        Text('홈',
+                          textScaleFactor: 1,
+                          style: TextStyle(color: currentTab == 1 ? const Color(0xff000275) : const Color(0xff959595),
+                              fontSize: 10),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: (){
+                    context.read<TabSelect>().changeTab(appMenu[2], 2);
                   },
                   child: SizedBox(
                     width: size.width * 0.2,
@@ -94,12 +94,12 @@ class _NavigationState extends State<Navigation> {
                         ImageIcon(
                             const AssetImage('assets/xhdpi/icon_my.png'),
                             size: 25.h,
-                            color: currentTab == 3 ? const Color(0xff000275) : const Color(0xffeaeaea)
+                            color: currentTab == 2 ? const Color(0xff000275) : const Color(0xffeaeaea)
                         ),
                         const SizedBox(height: 3,),
                         Text('MY',
                           textScaleFactor: 1,
-                          style: TextStyle(color: currentTab == 3 ? const Color(0xff000275) : const Color(0xff959595),
+                          style: TextStyle(color: currentTab == 2 ? const Color(0xff000275) : const Color(0xff959595),
                               fontSize: 10),
                         )
                       ],
