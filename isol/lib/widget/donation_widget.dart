@@ -169,3 +169,66 @@ GestureDetector donatoinPurposeBox(String text, context, Widget page){
     ),
   );
 }
+
+Widget donationProcessRow(BuildContext context){
+  return Container(
+      width: 311.5.w,
+      height: 37.5.h,
+
+      child: Column(
+        children: [
+          Row(
+          children: [
+            Text(
+                "2022.09.01",
+                style: const TextStyle(
+                    color:  const Color(0xff313131),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "NotoSansKR",
+                    fontStyle:  FontStyle.normal,
+                    fontSize: 13.0
+                ),
+                textAlign: TextAlign.left
+            ),
+            SizedBox(width: 23.w,),
+            Text(
+                "아동에게 지급",
+                style: const TextStyle(
+                    color:  const Color(0xff313131),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "NotoSansKR",
+                    fontStyle:  FontStyle.normal,
+                    fontSize: 13.0
+                ),
+                textAlign: TextAlign.left
+            ),
+            SizedBox(width: 87.w,),
+            Text(
+                "2,000원",
+                style: const TextStyle(
+                    color:  const Color(0xff313131),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "NotoSansKR",
+                    fontStyle:  FontStyle.normal,
+                    fontSize: 13.0
+                ),
+                textAlign: TextAlign.left
+            ),
+            SizedBox(width: 12.w,)
+          ],
+  ),
+          SizedBox(height: 6.h,),
+
+          Container(
+              width: 310.w,
+              height: 1.h,
+              decoration: BoxDecoration(
+                  color: const Color(0xfff2f2f2)
+              )
+          ),
+          SizedBox(height: 15.h,)
+        ],
+      ),
+  );
+
+}
