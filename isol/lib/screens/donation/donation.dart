@@ -8,7 +8,7 @@ import 'filter.dart';
 import 'donation_info.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ml_model_downloader/firebase_ml_model_downloader.dart';
-import 'package:tflite/tflite.dart';
+// import 'package:tflite/tflite.dart';
 
 class Donation extends StatefulWidget {
   const Donation({Key? key}) : super(key: key);
@@ -27,16 +27,16 @@ class _DonationState extends State<Donation> {
   ];
   var index = 0;
 
-  loadModel() async {
-    await Tflite.loadModel(
-        model: "assets/model.tflite",
-        labels: "assets/model.txt"
-    ).then((value) {
-      setState(() {
-        //_loading = false;
-      });
-    });
-  }
+  // loadModel() async {
+  //   await Tflite.loadModel(
+  //       model: "assets/model.tflite",
+  //       labels: "assets/model.txt"
+  //   ).then((value) {
+  //     setState(() {
+  //       //_loading = false;
+  //     });
+  //   });
+  // }
 
   Map<int, bool> selectedFilter = {
     0: true, //교육
