@@ -45,7 +45,7 @@ class _DonationProcessState extends State<DonationProcess> {
                 ),
                 SizedBox(height: 20.h,),
               Text(
-                  "대학생 봉사 활동비 목적으로 총 10,000원을 \n부산대학교 산학협력단에게 지급을 했습니다!",
+                  "대학생 봉사 활동비 목적으로 총 10,000원을",
               style: const TextStyle(
               color:  const Color(0xff222222),
               fontWeight: FontWeight.w600,
@@ -55,12 +55,24 @@ class _DonationProcessState extends State<DonationProcess> {
           ),
             textAlign: TextAlign.left
         ),
+                Text(
+                    "굿네이버스에게 지급을 완료했습니다!",
+                    style: const TextStyle(
+                        color:  const Color(0xff222222),
+                        fontWeight: FontWeight.w600,
+                        fontFamily: "NotoSansKR",
+                        fontStyle:  FontStyle.normal,
+                        fontSize: 13.0
+                    ),
+                    textAlign: TextAlign.left
+                ),
                 SizedBox(height: 50.h,),
                 SimpleCircularProgressBar(
                   progressColors: const [Colors.cyan, Colors.purple],
                   onGetText: (double value) {
                     return Text('${value.toInt()}%');
                   },
+                  animationDuration: 3,
                 ),
                 SizedBox(height: 20.h,),
                 Text(
