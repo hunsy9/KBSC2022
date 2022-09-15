@@ -55,6 +55,7 @@ class _DonationProcessState extends State<DonationProcess> {
           ),
             textAlign: TextAlign.left
         ),
+                SizedBox(height: 5.h,),
                 Text(
                     "굿네이버스에게 지급을 완료했습니다!",
                     style: const TextStyle(
