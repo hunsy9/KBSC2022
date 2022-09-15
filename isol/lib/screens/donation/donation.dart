@@ -38,6 +38,8 @@ class _DonationState extends State<Donation> {
   //   });
   // }
 
+
+
   Map<int, bool> selectedFilter = {
     0: true, //교육
     1: true, //의료

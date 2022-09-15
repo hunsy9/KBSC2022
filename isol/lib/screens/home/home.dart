@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0x99f7fbfc),
+      backgroundColor: const Color(0x99f2feff),
       appBar: AppBar(
         centerTitle: true,
         iconTheme: const IconThemeData(
@@ -38,23 +38,66 @@ class _HomeState extends State<Home> {
           margin: EdgeInsets.only(left: 15.w, right: 15.w, top: 15.h),
           child: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 150.h),
-                child: Center(
-                  child: SizedBox(
-                    width: 200.w,
-                    height: 200.h,
-                    child: LiquidCustomProgressIndicator(
-                        value: 0.456, // Defaults to 0.5.
-                        valueColor: const AlwaysStoppedAnimation(Color(
-                            0xffff5e5e)), // Defaults to the current Theme's accentColor.
-                        backgroundColor: const Color(0xffffffff), // Defaults to the current Theme's backgroundColor.
-                        shapePath: ClipPathClass().Heart(Size(200.w, 200.h)), direction: Axis.vertical, // A Path object used to draw the shape of the progress indicator. The size of the progress indicator is created from the bounds of this path.
-                      )
+              Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(100, 10, 50, 0),
+                    child: Image.asset(
+                      'assets/xhdpi/charity.png',
+                      height: 90.h,
+                    ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30),
+                    child: Center(
+                      child: SizedBox(
+                          width: 200.w,
+                          height: 200.h,
+                          child: LiquidCustomProgressIndicator(
+                            center: const Padding(
+                              padding: EdgeInsets.only(top: 60),
+                              child: Text("1,600,000 원", style: TextStyle(fontSize: 20, color: Color(
+                                  0xffffffff)),),
+                            ),
+                            value: 0.54321, // Defaults to 0.5.
+                            valueColor: const AlwaysStoppedAnimation(Color(
+                                0xffff5e5e)), // Defaults to the current Theme's accentColor.
+                            backgroundColor: const Color(0xffffdbdb), // Defaults to the current Theme's backgroundColor.
+                            shapePath: ClipPathClass().Heart(Size(200.w, 200.h)), direction: Axis.vertical, // A Path object used to draw the shape of the progress indicator. The size of the progress indicator is created from the bounds of this path.
+                          )
+                      ),
+                    ),
+                  ),
+      ]
+              ),
+              // Padding(
+              //   padding: const EdgeInsets.all(0),
+              //   child: Center(
+              //     child: SizedBox(
+              //       width: 200.w,
+              //       height: 200.h,
+              //       child: LiquidCustomProgressIndicator(
+              //         center: const Padding(
+              //           padding: EdgeInsets.only(top: 60),
+              //           child: Text("1,600,000 원", style: TextStyle(fontSize: 20, color: Color(
+              //               0xffffffff)),),
+              //         ),
+              //         value: 0.54321, // Defaults to 0.5.
+              //         valueColor: const AlwaysStoppedAnimation(Color(
+              //             0xffff5e5e)), // Defaults to the current Theme's accentColor.
+              //         backgroundColor: const Color(0xffffdbdb), // Defaults to the current Theme's backgroundColor.
+              //         shapePath: ClipPathClass().Heart(Size(200.w, 200.h)), direction: Axis.vertical, // A Path object used to draw the shape of the progress indicator. The size of the progress indicator is created from the bounds of this path.
+              //       )
+              //     ),
+              //   ),
+              // ),
+              Padding(
+                padding: const EdgeInsets.all(35),
+                child: Image.asset(
+                  'assets/xhdpi/totalammount.png',
+                  height: 20.h,
                 ),
               )
-
             ],
           )),
     );
