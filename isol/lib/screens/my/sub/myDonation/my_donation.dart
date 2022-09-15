@@ -29,11 +29,7 @@ class _MyDonationState extends State<MyDonation> {
                   myDonationBox(context),
                   myDonationBox(context),
                   myDonationBox(context),
-                  myDonationBox(context),
-                  myDonationBox(context),
-                  myDonationBox(context),
-                  myDonationBox(context),
-                  myDonationBox(context),
+
                  ],
               ),
             ),
