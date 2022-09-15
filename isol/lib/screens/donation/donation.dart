@@ -18,7 +18,7 @@ class Donation extends StatefulWidget {
 }
 
 class _DonationState extends State<Donation> {
-  final choices = ['전체', '아동,청소년', '어르신', '여성', '우리사회', '환경', '동물'];
+  final choices = ['전체', '미취학아동', '초등학생', '중ㆍ고등학생', '해외'];
   final banners = [
     "assets/xhdpi/donate_sample.jpg",
     "assets/xhdpi/donate_sample2.jpg",
@@ -182,8 +182,6 @@ class _DonationState extends State<Donation> {
                       child: TabBarView(
                           children: <Widget>[
                             _donationMainTab(context),
-                            _donationSubTab(context),
-                            _donationSubTab(context),
                             _donationSubTab(context),
                             _donationSubTab(context),
                             _donationSubTab(context),

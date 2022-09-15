@@ -36,7 +36,7 @@ class _DonationInfoState extends State<DonationInfo> {
             padding: EdgeInsets.only(top: 10.h),
             child: ClipRRect(
               child: Image.asset(
-                "assets/xhdpi/isol_begin.png",
+                "assets/xhdpi/donate_sample2.jpg",
                 fit: BoxFit.cover,
                 width: MediaQuery.of(context).size.width,
                 height: 200.h,

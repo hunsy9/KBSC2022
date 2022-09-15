@@ -35,20 +35,27 @@ class _HomeState extends State<Home> {
         elevation: 0.2,
       ),
       body: Container(
-          margin: EdgeInsets.only(left: 15.w, right: 15.w, top: 15.h),
+          margin: EdgeInsets.only(left: 15.w, right: 15.w, top: 50.h),
           child: Column(
             children: [
-              Stack(
-                children: [
+              // Stack(
+              //   children: [
+                  // Padding(
+                  //   padding: const EdgeInsets.fromLTRB(110, 10, 50, 0),
+                  //   child: Image.asset(
+                  //     'assets/xhdpi/charity.png',
+                  //     height: 90.h,
+                  //   ),
+                  // ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(100, 10, 50, 0),
+                    padding: const EdgeInsets.all(20),
                     child: Image.asset(
-                      'assets/xhdpi/charity.png',
-                      height: 90.h,
+                      'assets/xhdpi/text_home.png',
+                      height: 100.h,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 30),
+                    padding: const EdgeInsets.only(top: 0),
                     child: Center(
                       child: SizedBox(
                           width: 200.w,
@@ -68,8 +75,8 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-      ]
-              ),
+                // ]
+              // ),
               // Padding(
               //   padding: const EdgeInsets.all(0),
               //   child: Center(
@@ -97,7 +104,7 @@ class _HomeState extends State<Home> {
                   'assets/xhdpi/totalammount.png',
                   height: 20.h,
                 ),
-              )
+              ),
             ],
           )),
     );
