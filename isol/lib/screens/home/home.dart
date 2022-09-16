@@ -67,28 +67,18 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0x99f2feff),
-      appBar: AppBar(
-        centerTitle: true,
-        iconTheme: const IconThemeData(
-          color: Colors.black,
-        ),
-        title:Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Image.asset(
-              'assets/xhdpi/ISOL.png',
-              height: 20.h,
-            )
-          ],
-        ),
-        backgroundColor: Colors.white,
-        elevation: 0.2,
-      ),
+      backgroundColor: Colors.white,
+
       body: Container(
           margin: EdgeInsets.only(left: 15.w, right: 15.w, top: 10.h),
           child: Column(
             children: [
+              SizedBox(height: 50.h,),
+              Image.asset(
+                'assets/xhdpi/ISOL.png',
+                height: 30.h,
+              ),
+              SizedBox(height: 40.h,),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                     child: Image.asset(
