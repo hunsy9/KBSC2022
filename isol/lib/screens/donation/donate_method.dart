@@ -38,7 +38,7 @@ class _DonateMethodState extends State<DonateMethod> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: baseAppBar('기부하기'),
+        appBar: baseAppBar('후원하기'),
         body: GestureDetector(
           onTap: (){
             FocusScope.of(context).unfocus();
@@ -51,7 +51,7 @@ class _DonateMethodState extends State<DonateMethod> {
                 donationInfoBox(context),
                 SizedBox(height: 43.h,),
                 Text(
-                  "후원 방식을 선택해 주세요.",
+                  "후원 금액을 선택해 주세요.",
                   style: TextStyle(
                       color:  const Color(0xff313131),
                       fontWeight: FontWeight.w500,
