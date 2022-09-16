@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liquid_progress_indicator_ns/liquid_progress_indicator.dart';
-import 'package:flutter_shapes/flutter_shapes.dart';
-import 'package:infinite_carousel/infinite_carousel.dart';
-import 'package:supportus_flutter_app/widget/donation_widget.dart';
-import '../donation/donation.dart';
-import 'package:flutter_carousel_slider/carousel_slider.dart';
-import 'package:number_animation/number_animation.dart';
-import 'package:intl/intl.dart';
-import 'package:animated_digit/animated_digit.dart';
 
-var f = NumberFormat('###,###,###,###');
+import 'package:infinite_carousel/infinite_carousel.dart';
+
+import 'package:flutter_carousel_slider/carousel_slider.dart';
+import 'package:animated_digit/animated_digit.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -194,8 +189,4 @@ class ClipPathClass {
         0.5 * width, height);
     return path;
   }
-}
-
-Widget build(BuildContext context) {
-  return NumberAnimation(end: 100);
 }
