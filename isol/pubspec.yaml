@@ -54,6 +54,7 @@ dependencies:
 #  tflite: ^1.1.2
   firebase_ml_model_downloader: ^0.1.1+7
   flutter_shapes: ^0.3.0
+  infinite_carousel: ^1.0.2
 
 dev_dependencies:
   flutter_test:

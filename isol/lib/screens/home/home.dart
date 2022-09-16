@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liquid_progress_indicator_ns/liquid_progress_indicator.dart';
 import 'package:flutter_shapes/flutter_shapes.dart';
+import 'package:infinite_carousel/infinite_carousel.dart';
+import 'package:supportus_flutter_app/widget/donation_widget.dart';
+import '../donation/donation.dart';
+import 'package:flutter_carousel_slider/carousel_slider.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,7 +16,54 @@ class Home extends StatefulWidget {
 
 
 class _HomeState extends State<Home> {
+  late InfiniteScrollController controller;
   final Path path = Path();
+
+  final banners = [
+    "assets/xhdpi/child1.jpg",
+    "assets/xhdpi/child2.jpg",
+    "assets/xhdpi/child3.jpg",
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    controller = InfiniteScrollController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
+  
+  Widget _homeMainBox(BuildContext context, int index) {
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(19.0),
+          color: Colors.white,
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0xffa6cef3),
+              offset: Offset(0.0, 0.3), //(x,y)
+              blurRadius: 8.0,
+            ),
+          ],
+        ),
+        child:
+            ClipRRect(
+              borderRadius: BorderRadius.circular(19.0),
+              child: Image.asset(
+                banners[index],
+                fit: BoxFit.fill,
+              ),
+            )
+      ),
+    );
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,25 +86,34 @@ class _HomeState extends State<Home> {
         elevation: 0.2,
       ),
       body: Container(
-          margin: EdgeInsets.only(left: 15.w, right: 15.w, top: 50.h),
+          margin: EdgeInsets.only(left: 15.w, right: 15.w, top: 10.h),
           child: Column(
             children: [
-              // Stack(
-              //   children: [
-                  // Padding(
-                  //   padding: const EdgeInsets.fromLTRB(110, 10, 50, 0),
-                  //   child: Image.asset(
-                  //     'assets/xhdpi/charity.png',
-                  //     height: 90.h,
-                  //   ),
-                  // ),
                   Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                     child: Image.asset(
                       'assets/xhdpi/text_home.png',
                       height: 100.h,
                     ),
                   ),
+              SizedBox(height: 120.h,
+              child: Builder(
+                builder: (context) {
+                   return CarouselSlider.builder(
+                     viewportFraction: 0.6,
+                     autoSliderTransitionCurve: Curves.easeOutBack,
+                     scrollPhysics: const BouncingScrollPhysics(),
+                     enableAutoSlider: true,
+                     autoSliderTransitionTime: const Duration(seconds: 3),
+                     autoSliderDelay: const Duration(seconds: 1),
+                     unlimitedMode: true,
+                     slideBuilder: (index) {
+                       return _homeMainBox(context, index);
+                     },
+                     itemCount: 3
+                   );
+                }
+              ),),
                   Padding(
                     padding: const EdgeInsets.only(top: 0),
                     child: Center(

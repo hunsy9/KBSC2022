@@ -15,6 +15,19 @@ class _MyQuestionState extends State<MyQuestion> {
     return Scaffold(
       backgroundColor: const Color(0xfffafcfd),
       appBar: baseAppBar('1:1 문의'),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+          child: Container(
+            color: Colors.blue,
+            child: Column(
+              children: [
+
+              ],
+            ),
+          ),
+        ),
+      )
     );
   }
 }
