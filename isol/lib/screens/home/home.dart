@@ -6,6 +6,11 @@ import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:supportus_flutter_app/widget/donation_widget.dart';
 import '../donation/donation.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
+import 'package:number_animation/number_animation.dart';
+import 'package:intl/intl.dart';
+import 'package:animated_digit/animated_digit.dart';
+
+var f = NumberFormat('###,###,###,###');
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -121,10 +126,15 @@ class _HomeState extends State<Home> {
                           width: 200.w,
                           height: 200.h,
                           child: LiquidCustomProgressIndicator(
-                            center: const Padding(
+                            center: Padding(
                               padding: EdgeInsets.only(top: 60),
-                              child: Text("1,600,000 원", style: TextStyle(fontSize: 20, color: Color(
-                                  0xffffffff)),),
+                              child: AnimatedDigitWidget(
+                                value: 1634500, // or use controller
+                                enableSeparator: true,
+                                textStyle: TextStyle(fontSize: 20, color: Color(
+                                    0xffffffff)),
+                                suffix: " 원",
+                              ),
                             ),
                             value: 0.54321, // Defaults to 0.5.
                             valueColor: const AlwaysStoppedAnimation(Color(
@@ -184,4 +194,8 @@ class ClipPathClass {
         0.5 * width, height);
     return path;
   }
+}
+
+Widget build(BuildContext context) {
+  return NumberAnimation(end: 100);
 }

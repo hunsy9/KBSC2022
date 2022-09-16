@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.supportus.supportus_flutter_app">
+    package="ISOL">
    <application
-        android:label="supportus_flutter_app"
+        android:label="ISOL"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
        <activity

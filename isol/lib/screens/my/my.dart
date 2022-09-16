@@ -10,11 +10,8 @@ import 'package:supportus_flutter_app/screens/my/sub/my_refund.dart';
 import 'package:supportus_flutter_app/screens/my/sub/notice.dart';
 
 import '../../style/style.dart';
-import '../../widget/app_bar.dart';
 import '../../widget/my_widget.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class My extends StatefulWidget {
   const My({Key? key}) : super(key: key);

@@ -79,7 +79,7 @@ Widget myDonationBox(context){
                     Row(
                       children: [
                         const Text(
-                          "후원금 미수령",
+                          "후원금 수령완료",
                           style: TextStyle(
                               color:  Color(0xffe26800),
                               fontWeight: FontWeight.w500,
@@ -97,7 +97,7 @@ Widget myDonationBox(context){
                                     Navigator.push(context,
                                         MaterialPageRoute(builder: (context) => const DonationReceipt()));
                                     break;
-                                  case '증빙자료':
+                                  case '후원금 프로세스':
                                     Navigator.push(context,
                                         MaterialPageRoute(builder: (context) => const DonationProcess()));
                                     break;

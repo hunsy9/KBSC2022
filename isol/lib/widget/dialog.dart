@@ -312,9 +312,9 @@ Future showDonationDialog(BuildContext context) {
                                         overlayColor: MaterialStateProperty.all(Colors.transparent),
                                       ),
                                       onPressed: () {
-                                        Navigator.pop(context, '증빙자료');
+                                        Navigator.pop(context, '후원금 프로세스');
                                       },
-                                      child: const Text('증빙자료',
+                                      child: const Text('후원금 프로세스',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(color: Colors.black, fontSize: 14, letterSpacing: -0.42,fontWeight: FontWeight.w400))
                                   ),

@@ -44,6 +44,7 @@ dependencies:
   bootpay_api: ^3.1.33
   modal_progress_hud_nsn: ^0.1.0-nullsafety-1
   simple_circular_progress_bar: ^1.0.2
+  intl: ^0.17.0
 
   google_sign_in: ^5.3.1
   flutter_web_auth: ^0.4.1
@@ -55,6 +56,8 @@ dependencies:
   firebase_ml_model_downloader: ^0.1.1+7
   flutter_shapes: ^0.3.0
   infinite_carousel: ^1.0.2
+  number_animation: ^0.1.2
+  animated_digit: ^3.2.1
 
 dev_dependencies:
   flutter_test:

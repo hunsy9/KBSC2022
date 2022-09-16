@@ -54,7 +54,7 @@ Widget donationInfoBox(BuildContext context) {
               fit: FlexFit.tight,
               child: Row(
                 children: [
-                  Image.asset("assets/xhdpi/icon_sample.png",
+                  Image.asset("assets/xhdpi/unicef.png",
                     height: 64.h,
                   ),
                   Padding(
@@ -63,7 +63,7 @@ Widget donationInfoBox(BuildContext context) {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("굿네이버스",
+                        Text("UNICEF",
                           style: TextStyle(
                               color: const Color(0xff313131),
                               fontWeight: FontWeight.w400,
@@ -74,7 +74,7 @@ Widget donationInfoBox(BuildContext context) {
                         SizedBox(
                           height: 5.h,
                         ),
-                        Text("대전지역 | 정기후원 | 일시후원",
+                        Text("수해지역 | 정기후원 | 일시후원",
                           style: TextStyle(
                               color: const Color(0xff797979),
                               fontWeight: FontWeight.w400,
